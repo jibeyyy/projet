@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2 phrase maxi ou 160 charactere">
+
+    <title>site officiel DJUE Koffi Mathieu </title>
+
+    <link rel="icon" type="image/png" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="normalize.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <img src="" alt="logo site Djue Koffi">
+        <nav>
+            <ul>
+                <li><a href="<?=$base_uri[0] ?>/public/home">Home</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/about">About</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/contact">Contact</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/login">se connecter</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/register">s'enregistrer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- end of header-->
+
+    <main>
+        <h1> bienvenue sur votre page de connexion</h1>
+
+
+        <form action="" method="POST">
+            <fieldset>
+                <legend>connexion a votre compte</legend>
+                <label for="identity">Votre identifiant :</label></br>
+                <input type="email" name="email" aria-describedby="emailHelp" placeholder="Votre @email" required /></br>
+
+                <label for="password">Votre mot de passe : </label></br>
+                <input type="password" name="password" placeholder="Votre Mot de passe" required/></br>
+
+                <input type="submit" name="loginForm" class="btnLogin" value="Login">
+            </fieldset>
+        </form>
+        <hr>
+        <div>
+            <a class="small" href="forgot-password.html">mot de passe oublié?</a>
+        </div>
+        <div>
+            <a class="small" href="register.html">créé un compte</a>
+        </div>
+    </main>
+
+
+    <footer>
+        <div>
+            <i class="fab fa-facebook "> </i>
+            <a href="# ">cgu</a>
+            <a href="# ">mention legal</a>
+            <a href="contact.html ">Contact</a>
+            <a href="shop.html">boutique</a>
+        </div>
+        <div>
+            <small>product by jibeyyy</small>
+        </div>
+    </footer>
+
+</body>
+
+</html>

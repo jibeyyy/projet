@@ -9,29 +9,18 @@ require __DIR__.'/../vendor/autoload.php';
 // ainsi que sa méthode à appeler
 
 const AVAIABLE_ROUTES = [
-    'home'=>'HomeController',
-
-    'shop'=>'MainController',
-    
-    'contact'=> 'MainController',
-    
-    'login'=> 'UserController',
-   
-    'logout'=> 'UserController',
-        
-    'register'=> 'UserController',
-    
-    'admin'=> 'AdminController',
-    
-    '404'=> 'ErrorController',
-    
-    'payment'=> 'PaymentController',
+    'home' => ['controller' => 'MainController', 'action' => 'render'],
+    'login' => ['controller' => 'UserController', 'action' => 'renderUser'],
+    'logout' => ['controller' => 'UserController', 'action' => 'renderUser'],
+    'registerUser' => ['controller' => 'UserController', 'action' => 'register'],
+    'admin' => ['controller' => 'AdminController', 'action' => 'renderAdmin'],
+    '404' => ['controller' => 'ErrorController', 'action' => 'render'],
+    'shop' => ['controller'=> 'BookController', 'action' =>'renderBook']
 ];
 
-//initiatilisation des variables 
-$page = 'home'; // la variable avec la valeur home
+$page = 'home';
 $controller;
-
+$subPage = null;
 $itemId=null;
 // s'il y a un param GET page, on le stocke
 //dans le parametre page sinon on redirige vers home
@@ -41,22 +30,29 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
         $subPage = $_GET['subpage'];
         
     }
+}else{
+    $page = 'home';  // si il y a pas d'id on est rediriger ver la page home
+}
+    //////// routeur reset password////////
+//$route = $_GET['route']; // Supposons que vous utilisez un paramètre GET pour le routage
+/*
+if ($route == 'reset-password') {
+    $resetPasswordController = new ResetPassword();
+    $resetPasswordController->initiatePasswordReset();
+} elseif ($route == 'autre-page') {
 
-    
-    // Si on trouve en plus un param id dans l'url on le stocke
-    // dans la variable $itemId;
+
+/////////a vérifiééé////////
+
+
     if(!empty($_GET['id'])){   // on vérifi si l'identifiant est pas vide 
         $itemId = $_GET['id'];
 }else{
     $page = 'home';  // si il y a pas d'id on est rediriger ver la page home
-}
-// Si la page demandée fait partie de notre tableau de routes, on 
-// la stocke dans la variable controller
-// sinon on redirige vers le controller ErrorController
-if(array_key_exists($page,AVAIABLE_ROUTES)){  //si la clef existe par rapoort au chemin des routes
-    // on stocke dans la variable, le controller de la page demandée
+}*/
+
+if(array_key_exists($page,AVAIABLE_ROUTES)){ 
     $controller = AVAIABLE_ROUTES[$page]['controller'];
-    // on stocke dans la variable, la méthode (l'action) de la page demandée, l'action en reference au tableau des route
     $controllerAction = AVAIABLE_ROUTES[$page]['action'];
 }else{
     $controller = 'ErrorController';
@@ -64,16 +60,11 @@ if(array_key_exists($page,AVAIABLE_ROUTES)){  //si la clef existe par rapoort au
 
 $namespace = "App\Controllers";//on met le chemin de l'autoloader dans une variable
 $controllerClassName = $namespace . '\\' . $controller; // on concatene le chemin de la base de donner au tableau des routes
-// on fait une nouvelle instance du controller de la page demandée
-// $pageNameController = $namespace.$controller;
-$pageController = new $controllerClassName(); // on instanci 
-var_dump($namespace);
+
+$pageController = new $controllerClassName();
 // on utilise son setter pour communiquer à la propriété $view la vue correspondante
 $pageController->setView($page);
-// on utilise son setter pour communiquer à la propriété $id du controller
-// $pageController->setId($itemId);
-// on appelle la bonne méthode en fonction de la page demandée
 $pageController->setSubPage($subPage);
 $pageController->$controllerAction();
-}
+
 ?>

@@ -1,0 +1,9 @@
+{
+    "name": "jeanbaptisteafonso/djue-koffi",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {}
+}

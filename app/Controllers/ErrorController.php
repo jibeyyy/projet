@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Controllers;
+use App\Controllers\MainController;
 
-class ErrorController extends MainController
+ class ErrorController extends MainController
 {
     // le constructeur va se lancer automatiquement,lors de l'appel de ErrorController
     public function __construct(){

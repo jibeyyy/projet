@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2 phrase maxi ou 160 charactere">
+
+    <title>site officiel DJUE Koffi Mathieu </title>
+
+    <link rel="icon" type="image/png" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="normalize.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <img src="" alt="logo site Djue Koffi">
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="shop.html">Boutique</a></li>
+                <li><a href="contact.html">contact</a></li>
+                <li>
+                    <form action="" methode="get">
+                        <input type="submit" name="connect" value="se connecter">
+                        <input type="submit" name="signUp" value="s'enregistrer">
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- end of header-->
+    <main class="mainShop">
+        <h2>boutique</h2>
+
+        <section id="shop">
+            <article id="cart">
+
+                <div class=" item1" id="item1">
+                    <img src="" alt="livre Roman bio Agniassou">
+                </div>
+                <div class=item2 id="item2">
+                    <p class="paraA">&Pr; Katakié, agriculteur, et son épouse Blassonie, quittent leur terre natal pour s'installer à Agniassou, à la recherche de dame fortune.Une zone forestière, propice à la culture du café et du cacao.Parfaitement intégré dans ce nouveau
+                        village, Katakié travaille dur pour garantir un lendemain meilleur à sa famille.Mais il doit faire face au haléas de la vie. La réussite l'attend, les pertes aussi... &Sc;</p>
+
+                    <div class="item3">
+                        <h1>
+                            <?= $product['name']; ?>
+                        </h1>
+                        <p>Prix :
+                            <?= $product['price']; ?> €</p>
+                        <small>frais de port: 7€</small>
+
+                        <form method="POST" action="">
+                            <label for="quantity">Quantité :</label>
+                            <input type="number" name="quantity" id="quantity" min="1" max="9" value="1">
+                            <input type="submit" value="Ajouter au panier">
+                        </form>
+                    </div>
+
+            </article>
+
+
+        </section>
+        <img src="" alt="deco séparateur">----------------------</img>
+        <section id="paner" class="paner">
+
+            <h3>Mon panier</h3>
+            <table id="tablePaner">
+                <th>
+                    <td>livres</td>
+                    <td>quantité</td>
+                    <td>prix</td>
+                </th>
+                <tr>
+                    <td id="picture"><?= $product['img']; ?></td>
+                    <td id="resume"><?= $product['resume']; ?></td>
+                    <td id="price"><?= $product['price']; ?></td>
+                </tr>
+            </table>
+            <input type="submit" name="valiateBtn" value="Valider le panier"></input>
+
+        </section>
+        <img src="" alt="deco séparateur">----------------------</img>
+    </main>
+
+    <footer>
+        <div>
+            <i class="fab fa-facebook "> </i>
+            <a href="# ">cgu</a>
+            <a href="# ">mention legal</a>
+            <a href="contact.html ">Contact</a>
+            <a href="shop.html">boutique</a>
+        </div>
+        <div>
+            <small>product by jibeyyy</small>
+        </div>
+    </footer>
+
+</body>
+
+</html>
