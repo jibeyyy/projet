@@ -36,14 +36,14 @@
 <body>
     <nav>
         <ul>
-            <li><a href="admin.html">Gérer la boutique</a></li>
-            <li><a href="user.html">Gérer les utilisateurs</a></li>
-            <li><a href="news.html">Gérer les news</a></li>
+            <li><a href="admin.phtml">Gérer la boutique</a></li>
+            <li><a href="user.phtml">Gérer les utilisateurs</a></li>
+            <li><a href="news.phtml">Gérer les news</a></li>
         </ul>
 
 
         <!-- Bouton de déconnexion -->
-        <form action="logout.php" method="POST">
+        <form action="logout.phtml" method="POST">
             <button type="submit">Déconnexion</button>
         </form>
     </nav>
@@ -55,39 +55,26 @@
         
 
         <!-- Boutons pour gérer les articles -->
-        <a href="?section=modify" class="button">Modifier les articles</a>
-        <a href="?section=delete" class="button delete">Supprimer un article</a>
-        <a href="?section=create" class="button">Créer un article</a>
+        <a href="update.phtml" class="button">Modifier les articles</a>
+        <a href="remove.phtml" class="button delete">Supprimer un article</a>
+        <a href="add.phtml" class="button">Créer un article</a>
         
-      <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                                        <thead>
-                                            <tr role="row">
-                                                <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">title</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >date</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 182px;">img</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th rowspan="1" colspan="1">title</th>
-                                                <th rowspan="1" colspan="1">date</th>
-                                                <th rowspan="1" colspan="1">thumbnail</th>
-                                            </tr>
-                                        </tfoot>
+      <table class="table" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                       
                                         <tbody>
-                                            <?php foreach ($data['posts'] as $key => $post) : ?>
+                                            <?php foreach ($data['Book'] as $key => $book) : ?>
                                                 <tr>
                                                     <td><?= $post->getTitle(); ?></td>
                                                     <td><?= $post->getDate(); ?></td>
                                                     <td><img class="img-fluid" src="<?= $base_uri[0]; ?>/public/assets/front/img/<?= $post->getImg(); ?>" alt=""></td>
                                                     <td>
-                                                        <form class="d-flex justify-content-center align-items-center" action="" method="post">
+                                                        <form class="d-flex justify-content-center align-items-center" action="" method="POST">
                                                             <input type="hidden" name="postid" value="<?= $post->getId(); ?>">
                                                             <input class="btn btn-primary" name="deletePostForm" type="submit" value="Delete">
                                                         </form>
                                                     </td>
                                                     <td>                                                                                                                    
-                                                            <a class="btn btn-primary" href="<?= $base_uri[0]; ?>/public/admin/update/<?= $post->getId(); ?>">Update post</a>                                                        
+                                                            <a class="btn btn-primary" href="<?= $base_uri[0]; ?>/public/admin/update/<?= $book->getId(); ?>">Update book</a>                                                        
                                                     </td>
                                                 </tr>
                                             <?php endforeach ?>

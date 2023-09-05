@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use App\Utils\DataBase;
 use \PDO;
 
@@ -15,19 +14,21 @@ class BookModel
     private $ordre_ID;
 
     // méthode pour récupérer tous les articles
-    public static function getBook(int $limit = null): array
+    public static function getBook(int $limit = 1): array
     {
         $pdo = DataBase::connectPDO();
         if (!empty($limit)) {
             $query = $pdo->prepare('SELECT * FROM Book ORDER BY date DESC LIMIT ' . $limit);
         } else {
             $query = $pdo->prepare('SELECT * FROM Book ORDER BY date DESC');
+
         }
 
 
         $query->execute();
-        $book= $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\BookModel');
+        $book= $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\BookModel.php');
         return $book;
+        
     }
 
     public static function getBookById(int $id): ?BookModel
@@ -95,7 +96,7 @@ class BookModel
         return $this->id;
     }
 
-    public function setId(int $id): void
+    public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -105,17 +106,17 @@ class BookModel
         return $this->img;
     }
 
-    public function setImg(string $img): void
+    public function setImg(string $img)
     {
         $this->img = $img;
     }
 
-    public function getPrice(): ?string
+    public function getPrice(): int
     {
         return $this->price;
     }
 
-    public function setPrice(string $price): void
+    public function setPrice(string $price): int
     {
         $this->price = $price;
     }
@@ -125,7 +126,7 @@ class BookModel
         return $this->name;
     }
 
-    public function setName(string $name): void
+    public function setName(string $name): string
     {
         $this->name = $name;
     }
@@ -135,7 +136,7 @@ class BookModel
         return $this->resume;
     }
 
-    public function setResume(string $resume): void
+    public function setResume(string $resume): string
     {
         $this->resume = $resume;
     }
@@ -145,7 +146,7 @@ class BookModel
         return $this->ordre_ID;
     }
 
-    public function setOrdreId(int $ordre_ID): void
+    public function setOrdreId(int $ordre_ID): string
     {
         $this->ordre_ID = $ordre_ID;
     }

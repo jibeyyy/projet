@@ -1,0 +1,98 @@
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto 10px;
+  padding: 20px;
+  border-radius: 0 0 15px 15px;
+  background: linear-gradient(180deg, rgb(233, 233, 233) 27%, rgb(208, 100, 2) 100%);
+}
+header nav {
+  width: 100%;
+  height: 75px;
+  padding: 10px;
+}
+header nav ul {
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+header nav li {
+  list-style: none;
+  text-align: center;
+}
+header nav li a {
+  text-decoration: none;
+  color: #fff;
+  background: radial-gradient(circle, rgba(63, 94, 251, 0.8225665266) 11%, rgb(252, 132, 70) 100%);
+  padding: 10px 25px;
+  border-radius: 50%;
+  box-shadow: 3px 1px 1px brown;
+  text-shadow: 1px 1px red;
+}
+
+a:hover {
+  background-color: #000;
+  color: #fefee2;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    visibility: hidden;
+  }
+}
+body {
+  box-sizing: border-box;
+  background-color: #f6f6de;
+  font-family: cursive, Arial;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+}
+
+@font-face {
+  font-family: ShadowsIntoLight;
+  src: url("../font/ShadowsIntoLight-Regular.ttf") format("TrueType");
+}
+h1 {
+  text-align: center;
+  color: #943a07;
+  border-bottom: solid 2px;
+  padding: 15px;
+  margin: 30px 15% 20px;
+  box-shadow: 5px 5px 5px #ab621b;
+  text-shadow: 1px 1px #000;
+}
+
+.avatar {
+  width: 90%;
+  padding: 60px 0;
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(42deg, rgb(233, 233, 233) 28%, rgb(208, 100, 2) 100%);
+  border-radius: 20px;
+}
+.avatar figure {
+  height: 400px;
+  width: 350px;
+  border-style: ridge;
+  border-radius: 50%;
+  border-color: #ccc;
+}
+.avatar figure img {
+  border-radius: 50%;
+  width: 350px;
+  height: 400px;
+}
+.avatar figure figcaption {
+  padding: 20px;
+  margin: -50px;
+  font-family: ShadowsIntoLight;
+  font-weight: bold;
+  text-align: center;
+  font-size: larger;
+}
+
+/*# sourceMappingURL=style.css.map */

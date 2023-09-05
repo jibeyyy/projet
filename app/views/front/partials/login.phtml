@@ -1,0 +1,23 @@
+ <main>
+        <h1> bienvenue sur votre page de connexion</h1>
+
+        <form action="" method="POST">
+            <fieldset>
+                <legend>connexion a votre compte</legend>
+                <label for="email">Votre identifiant :</label></br>
+                <input type="email" id="email" name="email" aria-describedby="emailHelp" required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$" placeholder="Votre @email" required /></br>
+
+                <label for="password">Votre mot de passe : </label></br>
+                <input type="password" name="password" id="password" placeholder="Votre Mot de passe" required/></br>
+
+                <input type="submit" name="loginForm" class="btnLogin" value="Login">
+            </fieldset>
+        </form>
+        <hr>
+        <div>
+            <a class="small" href="forgot-password.phtml">mot de passe oublié?</a>
+        </div>
+        <div>
+            <a class="small" href="registrer.phtml">créé un compte</a>
+        </div>
+    </main>

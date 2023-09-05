@@ -105,8 +105,6 @@ class AdminController extends MainController { // connexion à l'administrateur 
         $bookModel->setResume($resume);
         $bookModel->setImg($img);
         $bookModel->setPrice($price);
-
-
         if ($bookModel->updateBook()) {
             $this->data['infos'] = '<div class="alert alert-success" role="alert">Article enregistré avec succès</div>';
         } else {

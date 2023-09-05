@@ -4,25 +4,32 @@ namespace App\Utils;
 
 use \PDO;
 
-class Database {
-    private $dsn;
+class DataBase {
     private static $_instance;
-    private function __construct() {
-        $config = parse_ini_file(__DIR__ . '/../config.ini');
-        try {
+    private $pdo;
 
-            $this->dsn = new PDO("mysql:host={$config['dbhost']};dbname={$config['dbname']}", $config['dbuser'], $config['dbpass'],array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    private function __construct() {
+        $dbhost = 'db.3wa.io';
+        $dbname = 'jeanbaptisteafonso_DjueKoffi';
+        $dbuser = 'jeanbaptisteafonso';
+        $dbpass = 'be72b7d7aaf3a17b1ab9731cc391f4f7';
+
+        try {
+            $this->pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo 'Connexion réussie';
         } catch (\PDOException $e) {
             print 'Erreur de connexion : ' . $e->getMessage();
             die();
         }
     }
+
     public static function connectPDO() {
         if (empty(self::$_instance)) {
-            self::$_instance = new self(); 
+            self::$_instance = new self();
         }
-        return self::$_instance->dsn;
-    } 
+
+        return self::$_instance->pdo;
+    }
 }
 ?>

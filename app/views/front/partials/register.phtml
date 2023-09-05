@@ -1,0 +1,30 @@
+
+ <form action="" method="POST">
+    <fieldset>
+        <legend>Formulaire d'inscription</legend>
+        <label for="username">Votre Nom :</label><br>
+        <input type="text" name="username" id="username" placeholder="Nom" required pattern="^[A-Za-z '-]+$" maxlength="25"><br>
+
+        <label for="firstName">Votre prénom :</label><br>
+        <input type="text" name="firstName" id="firstName" placeholder="Prénom" required pattern="^[A-Za-z '-]+$" maxlength="25"><br>
+
+        <label for="email">Votre Email :</label><br>
+        <input type="email" name="email" id="email" required pattern="^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]{2,}$" placeholder="adresse@email" required><br>
+
+        <label for="address">Votre adresse :</label><br>
+        <input type="text" name="address" id="address" placeholder="Adresse postale" required><br>
+
+        <label for="password">Votre mot de passe :</label><br>
+        <input type="password" name="password" id="password" placeholder="Votre mot de passe" required><br>
+
+        <input name="registerForm" type="submit" value="Envoyer">
+    </fieldset>
+</form>
+
+    <hr>
+    <div>
+        <a class="small" href="forgot-password.phtml">mot de passe perdu??</a>
+    </div>
+    <div>
+        <a class="small" href="login.phtml">vous avez déjà un compte? cliquer ici</a>
+    </div>

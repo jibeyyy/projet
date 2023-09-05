@@ -1,0 +1,48 @@
+@font-face {
+    font-family: ShadowsIntoLight;
+    src: url("../font/ShadowsIntoLight-Regular.ttf") format("TrueType");
+} // police pour le Nom de l'auteur
+h1 {
+    text-align: center;
+    color: #943a07;
+    border-bottom: solid 2px;
+    padding: 15px;
+    margin: 30px 15% 20px;
+    box-shadow: 5px 5px 5px #ab621b;
+    text-shadow: 1px 1px #000;
+}
+
+///////// section photo de l'auteur//////////
+.avatar {
+    width: 90%;
+    padding: 60px 0;
+    margin: 60px auto;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(42deg, rgba(233, 233, 233, 1) 28%, rgba(208, 100, 2, 1) 100%);
+    border-radius: 20px;
+
+    figure {
+        height: 400px;
+        width: 350px;
+        border-style: ridge;
+        border-radius: 50%;
+        border-color: #ccc;
+        img {
+            border-radius: 50%;
+            width: 350px;
+            height: 400px;
+        }
+        figcaption {
+            padding: 20px;
+            margin: -50px;
+            font-family: ShadowsIntoLight;
+            font-weight: bold;
+            text-align: center;
+            font-size: larger;
+        }
+    }
+
+}
+
+///////////// section a propos de l'auteur/////////

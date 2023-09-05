@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /../DjueKoffi/public/
+RewriteBase /DjueKoffi/public/
 # Réécrire l'URL pour les pages de posts
 # Réécrire l'URL pour la page d'accueil
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -9,7 +9,7 @@ RewriteRule ^([^/]+)/?$ index.php?page=$1 [QSA,L]
 # Réécrire l'URL pour les pages de posts
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^post/(\d+)/?$ index.php?page=Book&subpage=$1 [QSA,L]
+RewriteRule ^book/(\d+)/?$ index.php?page=Book&subpage=$1 [QSA,L]
 
 # Réécrire l'URL pour les pages d'administration
 RewriteCond %{REQUEST_FILENAME} !-f

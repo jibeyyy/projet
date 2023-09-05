@@ -1,39 +1,5 @@
-<!doctype html>
-<html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="2 phrase maxi ou 160 charactere">
 
-    <title>site officiel DJUE Koffi Mathieu </title>
-
-    <link rel="icon" type="image/png" href="">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-    <link rel="stylesheet" href="normalize.css" type="text/css" />
-    <link rel="stylesheet" href="style.css" type="text/css">
-</head>
-
-<body>
-    <header>
-        <img src="" alt="logo site Djue Koffi">
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="shop.html">Boutique</a></li>
-                <li><a href="contact.html">contact</a></li>
-                <li>
-                    <form action="" methode="get">
-                        <input type="submit" name="connect" value="se connecter">
-                        <input type="submit" name="signUp" value="s'enregistrer">
-                    </form>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- end of header-->
     <main class="mainShop">
         <h2>boutique</h2>
 
@@ -77,9 +43,15 @@
                     <td>prix</td>
                 </th>
                 <tr>
-                    <td id="picture"><?= $product['img']; ?></td>
-                    <td id="resume"><?= $product['resume']; ?></td>
-                    <td id="price"><?= $product['price']; ?></td>
+                    <td id="picture">
+                        <?= $product['img']; ?>
+                    </td>
+                    <td id="resume">
+                        <?= $product['resume']; ?>
+                    </td>
+                    <td id="price">
+                        <?= $product['price']; ?>
+                    </td>
                 </tr>
             </table>
             <input type="submit" name="valiateBtn" value="Valider le panier"></input>
@@ -88,19 +60,4 @@
         <img src="" alt="deco séparateur">----------------------</img>
     </main>
 
-    <footer>
-        <div>
-            <i class="fab fa-facebook "> </i>
-            <a href="# ">cgu</a>
-            <a href="# ">mention legal</a>
-            <a href="contact.html ">Contact</a>
-            <a href="shop.html">boutique</a>
-        </div>
-        <div>
-            <small>product by jibeyyy</small>
-        </div>
-    </footer>
 
-</body>
-
-</html>
