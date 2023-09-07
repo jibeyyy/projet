@@ -1,0 +1,22 @@
+footer {
+    background-color: #000;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .footer {
+        display: flex;
+        width: 90%;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+    a {
+        color: brown;
+        text-decoration: none;
+    }
+    .mention {
+        color: #ccc;
+        margin-bottom: 10px;
+    }
+}
