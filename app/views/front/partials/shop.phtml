@@ -1,34 +1,35 @@
 <main class="mainShop">
-    <h2>boutique</h2>
+    <h2>Boutique</h2>
 
     <section id="shop">
-        <article id="cart">
-            <div class=" item1" id="item1">
-                <img src="" alt="livre Roman bio Agniassou">
-            </div>
-            <div class=item2 id="item2">
-                   <p class="paraA"><?php echo $data['Book']->getResume(); ?></p>
-
-                <div class="item3">
-                    
-                    <p>Prix : <?php echo $data['Book']->getPrice() ?>€</p>
-                    <small>frais de port: 7€</small>
-
-                    <form method="POST" action="#paner">
-                        <label for="quantity">Quantité :</label>
-                        <input type="number" name="quantity" id="quantity" min="1" max="9" value="1">
-                        <input type="submit" value="Ajouter au panier">
-                    </form>
+        <?php foreach ($data as $book)
+       { ?>
+            <article id="cart">
+                <div class="item1" id="item1">
+                    <img class="imgShop" src="<?php echo  $base_uri[0].'/public/assets/img/'.$book->getImg(); ?>" alt="image livre Djue Koffi">
+                </div>                      
+                <div class="item2" id="item2">
+                    <span id="resume"><?php echo $book->getResume(); ?></span>
+                    <div class="item3">
+                        <p>Prix : <?php echo $book->getPrice() ?> €</p>
+                        <small>Frais de port: 7€</small>
+                        <form method="POST" action="">
+                            <label for="quantity">Quantité :</label>
+                            <input type="number" name="quantity" id="quantity" min="1" max="9" value="1">
+                            <input type="submit" name="Panier" value="Ajouter au panier">
+                        </form>
+                    </div>
                 </div>
-
-        </article>
-
+            </article>
+        <?php } ?>
+    </section>
+</main>
 
     </section>
     <img src="" alt="deco séparateur">----------------------</img>
     <section id="paner" class="paner">
 
-        <form action="payment.phtml">
+        <form action="">
         <h3>Mon panier</h3>
         <table id="paner">
             <th>
@@ -37,14 +38,14 @@
                 <td>prix</td>
             </th>
             <tr>
-                <td id="picture">
-                    <?= $product['img']; ?>
+                <td id="img">
+                   
                 </td>
                 <td id="resume">
-                    <?= $product['resume']; ?>
+                    
                 </td>
                 <td id="price">
-                    <?= $product['price']; ?>
+                   
                 </td>
             </tr>
         </table>

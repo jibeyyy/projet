@@ -10,7 +10,7 @@ class AdminController extends MainController { // connexion à l'administrateur 
     public function renderAdmin(): void
     {
     
-        $this->checkUserAuthorization(1); 
+       // $this->checkUserAuthorization(1); 
        
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // et si le formulaire est addPostForm
@@ -53,10 +53,7 @@ class AdminController extends MainController { // connexion à l'administrateur 
                 }
                 // 
             }
-        } else {
-         
-            $this->data['Book'] = BookModel::getBook();
-        }
+        } 
 
         $this->render();
     }
@@ -93,7 +90,7 @@ class AdminController extends MainController { // connexion à l'administrateur 
     public function updateBook(): void // mise a jour d'un article en vente
     {
 
-        $id = filter_input(INPUT_POST, 'Id', FILTER_SANITIZE_NUMBER_INT);
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
         $resume = filter_input(INPUT_POST, 'resume', FILTER_SANITIZE_SPECIAL_CHARS);
         $price = filter_input(INPUT_POST, 'price', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);

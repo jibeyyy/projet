@@ -39,10 +39,10 @@ protected function checkUserAuthorization(int $role): bool
             $currentUser = $_SESSION['userObject'];
             //  on récupère le rôle
             $currentUserRole = $currentUser->getRole();
-            // Si le rôle est inférieur ou égal au role demandé (le rôle 1 est le plus haut)
+            
             if ($currentUserRole <= $role) {
-                // on renvoie true
-                return true;
+              header('Location: ' . $redirect[0] . '/public/admin');
+               
             } else {
                 // sinon, on renvoie un code d'erreur 403
                 http_response_code(403);
@@ -54,8 +54,7 @@ protected function checkUserAuthorization(int $role): bool
                 exit();
             }
         } else {
-            // sinon s'il n'ya pas de session user
-            // on créer une url de redirection
+            
             $redirect = explode('/public/', $_SERVER['REQUEST_URI']);
             // on redirige vers la page de connexion
             header('Location: ' . $redirect[0] . '/public/login');

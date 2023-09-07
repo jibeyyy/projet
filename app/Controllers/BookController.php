@@ -8,17 +8,13 @@ class BookController extends MainController {
 
    
     public function renderBook() {
-        $bookModel = new BookModel();
+    $bookModel = new BookModel();
+    $books = $bookModel->getAllBooks(); 
+    
+    
+    $this->data = $books;
 
-        // Vérifier si l'identifiant est valide avant d'appeler la méthode
-        $bookId = $this->subPage; // Assurez-vous que $this->subPage contient l'identifiant
-
-        if (is_numeric($bookId)) { // Vérifier si c'est un nombre
-            $bookId = (int) $bookId; // Convertir en int si c'est un nombre
-            $this->data = $bookModel->getBookById($bookId);
-            $this->render();
-        } else {
-           echo 'livre non trouvé';
-        }
-    }
+    $this->render();
 }
+}
+

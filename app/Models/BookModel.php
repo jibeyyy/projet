@@ -13,40 +13,44 @@ class BookModel
     private $price;
     private $ordre_ID;
 
-    // méthode pour récupérer tous les articles
-    public static function getBook(int $limit = 1): array
-    {
-        $pdo = DataBase::connectPDO();
-        if (!empty($limit)) {
-            $query = $pdo->prepare('SELECT * FROM Book ORDER BY date DESC LIMIT ' . $limit);
-        } else {
-            $query = $pdo->prepare('SELECT * FROM Book ORDER BY date DESC');
 
-        }
+    public static function getAllBooks() {
+    $pdo = DataBase::connectPDO();
 
+    $sql = 'SELECT * FROM Book';
+    $pdoStatement = $pdo->prepare($sql);
+    $pdoStatement->execute();
 
-        $query->execute();
-        $book= $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\BookModel.php');
-        return $book;
-        
-    }
+    $bookData = $pdoStatement->fetchAll(PDO::FETCH_CLASS,'App\Models\BookModel');
 
-    public static function getBookById(int $id): ?BookModel
-    {
-        // connection pdo
-        $pdo = DataBase::connectPDO();
-        $query = $pdo->prepare('SELECT * FROM Book WHERE id=:id');
-        $query->bindParam(':id', $id);
-        $query->execute();
-        $query->setFetchMode(PDO::FETCH_CLASS, 'App\Models\BookModel');
-        $book = $query->fetch();        
-        return $book;
+    return $bookData;
 }
+    public static function getBookById(int $id)
+{
+    // Connexion PDO
+    $pdo = DataBase::connectPDO();
+    
+    $sql = 'SELECT * FROM Book WHERE id = :id';
+    $pdoStatement = $pdo->prepare($sql);
+    $pdoStatement->execute([':id' => $id]);
+ 
+    $bookData = $pdoStatement->fetch(PDO::FETCH_ASSOC);
+    
+    
+    $book = new BookModel();
+    $book->setId($bookData['id']);
+    $book->setImg($boodata['img']);
+    $book->setName($bookData['name']);
+    $book->setResume($bookData['resume']);
+    $book->setPrice($bookData['price']);
+    
+    return $book;
+}
+
     public function insertBook(): bool
     {
         $pdo = DataBase::connectPDO();
         $ordre_ID = $_SESSION['userObject']->getId();
-        // requête sql protégée des injections sql 
         $sql = "INSERT INTO `Book`(`img`, `name`, `resume`, `price`, `ordre_ID`) VALUES (:img, :name, :resume, :price, :ordre_ID)";
         
         $params = [
@@ -54,7 +58,7 @@ class BookModel
             'img' => $this->img,
             'resume' => $this->resume,
             'price' => $this->price,
-            'ordre_ID' => $ordre_ID
+            'ordre_ID' => $this->ordre_ID
         ];
         $query = $pdo->prepare($sql);
         $queryStatus = $query->execute($params);
@@ -73,10 +77,10 @@ class BookModel
             'img' => $this->img,
             'resume' => $this->resume,
             'price' => $this->price,
-            'ordre_ID' => $this->ordre_ID
+            
         ];
         $query = $pdo->prepare($sql);
-        // execution de la méthode en passant le tableau de params
+ 
         $queryStatus = $query->execute($params);
         return $queryStatus;
     }
@@ -106,7 +110,7 @@ class BookModel
         return $this->img;
     }
 
-    public function setImg(string $img)
+    public function setImg($img)
     {
         $this->img = $img;
     }
@@ -116,7 +120,7 @@ class BookModel
         return $this->price;
     }
 
-    public function setPrice(string $price): int
+    public function setPrice(int $price): int
     {
         $this->price = $price;
     }
@@ -126,10 +130,10 @@ class BookModel
         return $this->name;
     }
 
-    public function setName(string $name): string
-    {
-        $this->name = $name;
-    }
+    public function setName(string $name)
+{
+    $this->name = $name;
+}
 
     public function getResume(): string
     {

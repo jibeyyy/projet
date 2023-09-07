@@ -13,7 +13,6 @@ const AVAILABLE_ROUTES = [
     'admin' => ['controller' => 'AdminController', 'action' => 'renderAdmin'],
     '404' => ['controller' => 'ErrorController', 'action' => 'render'],
     'shop' => ['controller'=> 'BookController', 'action' =>'renderBook'],
-    
 ];
 
 $page = 'home';
