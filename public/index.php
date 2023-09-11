@@ -1,6 +1,6 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
-
+session_start();
  $base_uri = explode('/', $_SERVER['REQUEST_URI']);
 
 
@@ -10,6 +10,7 @@ const AVAILABLE_ROUTES = [
     'login' => ['controller' => 'UserController', 'action' => 'renderUser'],
     'logout' => ['controller' => 'UserController', 'action' => 'renderUser'],
     'register' => ['controller' => 'UserController', 'action' => 'renderUser'],
+    'forgot-password'=> ['controller' => 'MainController', 'action'=> 'render'],
     'admin' => ['controller' => 'AdminController', 'action' => 'renderAdmin'],
     '404' => ['controller' => 'ErrorController', 'action' => 'render'],
     'shop' => ['controller'=> 'BookController', 'action' =>'renderBook'],

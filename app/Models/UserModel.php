@@ -37,35 +37,50 @@ class UserModel {
         // On retourne le statut
         return $queryStatus;
     }
+    public function checkEmail(): bool
+    {
+        // connexion pdo
+        $pdo = DataBase::connectPDO();
 
-//methode permaettant de récupéré l'email et le mot  depasse de l'utilisateur 
-public static function getUserByEmail($email, $password): ?UserModel
-{
-    // Connexion PDO
-    $pdo = DataBase::connectPDO();
+        // création requête avec liaison de param pour éviter les injections sq
+        $sql = "SELECT * FROM `user` WHERE `email` = :email";
+        $query = $pdo->prepare($sql);
+        $query->bindParam(':email', $this->email);
+        $query->execute();
+        
+        $isMail = $query->fetchColumn();
 
-    $sql = 'SELECT * FROM user WHERE email = :email';
-    $pdoStatement = $pdo->prepare($sql);
-
-    // Exécution de la requête en fournissant la valeur pour ':email'
-    $pdoStatement->execute([':email' => $email]);
-
-    // Récupération des données de l'utilisateur
-    $userData = $pdoStatement->fetch(PDO::FETCH_ASSOC);
-
-    // Si aucun utilisateur correspondant n'est trouvé ou si le mot de passe est incorrect, retournez null
-    if (!$userData || !password_verify($password, $userData['password'])) {
-        return null;
+        // donc l'instruction $isMail > 0 donnera true s'il y'a déjà l'email présent
+        return $isMail > 0;
     }
 
-    // Création d'un objet UserModel à partir des données récupérées
-    $user = new UserModel();
-    $user->setId($userData['id']);
-    $user->setEmail($userData['email']);
-    // Vous n'avez pas besoin de définir le mot de passe ici car il est déjà haché dans la base de données
+//methode permaettant de récupéré l'email et le mot  depasse de l'utilisateur 
+ public static function getUserByEmail($email): ?UserModel
+    {
 
-    return $user;
-}
+        // connexion pdo
+        $pdo = DataBase::connectPDO();
+
+        // requête SQL
+        $sql = '
+        SELECT * 
+        FROM user
+        WHERE email = :email';
+        $pdoStatement = $pdo->prepare($sql);
+        // on exécute la requête en donnant à PDO la valeur à utiliser pour remplacer ':email'
+        $pdoStatement->execute([':email' => $email]);
+        // on récupère le résultat sous la forme d'un objet de la classe AppUser
+        $result = $pdoStatement->fetchObject('App\Models\UserModel');
+
+        // si l'email ne correspond pas, ça va renvoyer false et on va rentrer dans la condition (car différent de true)        
+        if(!$result){
+            
+            // on donne à result null car notre méthode doit renvoyer soit UserModel soit null
+            $result = null;
+        }
+        // on renvoie le résultat
+        return $result;
+    }
 
 
     public function getId(): int

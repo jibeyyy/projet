@@ -1,5 +1,5 @@
  <main>
-        <h1> bienvenue sur votre page de connexion</h1>
+        <h1> bienvenue sur page de connexion</h1>
 
         <form action="" method="POST">
             <fieldset>
@@ -10,14 +10,16 @@
                 <label for="password">Votre mot de passe : </label></br>
                 <input type="password" name="password" id="password" placeholder="Votre Mot de passe" required/></br>
 
-                <input type="submit" name="loginForm" class="btnLogin" value="Login">
+                <input class="btnInput" type="submit" name="loginForm" class="btnLogin" value="Login">
             </fieldset>
         </form>
         <hr>
+        <div class="infoConnect">
         <div>
-            <a class="small" href="forgot-password.phtml">mot de passe oublié?</a>
+           <a class="small" href="<?=$base_uri[0] ?>/public/forgot-password">mot de pass oublié ?</a>
         </div>
         <div>
-            <a class="small" href="registrer.phtml">créé un compte</a>
+            <a class="small" href="<?=$base_uri[0] ?>/public/register">créé compte</a>
+        </div>
         </div>
     </main>

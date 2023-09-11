@@ -58,32 +58,49 @@ class UserController extends MainController {
             }
         }
     }
-public function login(): void
-{
-    $errors = 0;
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+ public function login(): void
+    {
 
-    $user = UserModel::getUserByEmail($email, $password);
+        $errors = 0;
+        $user = new UserModel();
+        $user = $user->getUserByEmail($_POST['email']);
+        if (is_null($user)) {
+           
+            $errors = 1;
+        } 
+        else {
+            // sinon on vérifie si le mot de passe de l'utilisateur en bdd et celui renseigné dans le formulaire concordent
+            if (password_verify($_POST['password'], $user->getPassword())) {
+                // si c'est le cas, on stocke notre objet user dans la session
+                $_SESSION['user_id'] = $user->getId();
+                $_SESSION['role'] = $user->getRole();                
+                // on stocke un message dans la propriété data pour l'afficher dans la vue
+                $this->data[] =  '<div class="alert alert-success" role="alert">connexion réussie ! votre compte doit être modifié par un admin pour que vous ayez accès à l\'administration</div>';
 
-    if ($user === null) {
-        
-        $errors = 1;
-        echo 'erreur connexion';
+                // on créé une url de redirection
+                $base_uri = explode('index.php', $_SERVER['SCRIPT_NAME']);
+                // on redirige vers la page admin
+                if($user->getRole() < 3){
+                    header('Location:' . $base_uri[0] . 'admin');
+                }                
+            } 
+            else {
+               
+                $errors = 1;
+            }
         }
-        else if ($errors = 0 && $user->getRole < 3){
-           header('Location:' . $base_uri[0] . 'admin');
+        // s'il y à des erreurs
+        if ($errors > 0) {
+            //On stock dans data le message d'erreur à afficher dans la vue
+            $this->data[] = '<div class="alert alert-danger" role="alert">Email ou mot de passe incorrect</div>';
         }
-     else {
-        header('Location:' . $base_uri[0] . 'home');
-       
+     
     }
-}
 
  // déconexion d'un utilisateur
  public function logout(): void 
  {  
-        unset($_SESSION['userObject']);
+        unset($_SESSION['user-id']);
         // pour détruire la session 
         session_destroy();
         // création de l'url de redirection
@@ -92,3 +109,31 @@ public function login(): void
         header('Location:' . $base_uri[0] . 'home');
     }
  } 
+
+
+
+
+
+
+
+// public function login(): void
+// {
+//     $errors = 0;
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
+
+//     $user = UserModel::getUserByEmail($email, $password);
+
+//     if ($user === null) {
+        
+//         $errors = 1;
+//         echo 'erreur connexion';
+//         }
+//         else if ($errors = 0 && $user->getRole < 3){
+//           header('Location:' . $base_uri[0] . 'admin');
+//         }
+//      else {
+//         header('Location:' . $base_uri[0] . 'home');
+       
+//     }
+// }

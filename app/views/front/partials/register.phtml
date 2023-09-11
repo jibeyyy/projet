@@ -17,14 +17,16 @@
         <label for="password">Votre mot de passe :</label><br>
         <input type="password" name="password" id="password" placeholder="Votre mot de passe" required><br>
 
-        <input name="registerForm" type="submit" value="Envoyer">
+        <input class="btnInput" name="registerForm" type="submit" value="Envoyer">
     </fieldset>
 </form>
 
     <hr>
+    <div class="infoConnect">
     <div>
-        <a class="small" href="forgot-password.phtml">mot de passe perdu??</a>
-    </div>
-    <div>
-        <a class="small" href="login.phtml">vous avez déjà un compte? cliquer ici</a>
+           <a class="small" href="<?=$base_uri[0] ?>/public/forgot-password">mot de pass oublié ?</a>
+        </div>
+        <div>
+            <a class="small" href="<?=$base_uri[0] ?>/public/login">vous avez déjà un compte? cliquer ici</a>
+        </div>
     </div>

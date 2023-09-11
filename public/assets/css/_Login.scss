@@ -1,0 +1,43 @@
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: #943a07;
+    border-bottom: solid 2px;
+    padding: 15px;
+    margin: 30px 15% 50px;
+    box-shadow: 5px 5px 5px #ab621b;
+    text-shadow: 1px 1px #000;
+    text-wrap: wrap;
+}
+
+form {
+    width: 30%;
+    margin: 30px auto;
+    background-color: brown;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+label:after {
+    content: "*";
+    color: red;
+}
+
+input {
+    margin: 10px 0;
+}
+
+.infoConnect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    font-size: medium;
+}
+
+.small {
+    text-decoration: none;
+    color: #000;
+}

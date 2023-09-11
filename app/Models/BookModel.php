@@ -50,7 +50,7 @@ class BookModel
     public function insertBook(): bool
     {
         $pdo = DataBase::connectPDO();
-        $ordre_ID = $_SESSION['userObject']->getId();
+        $ordre_ID = $_SESSION['user_id']->getId();
         $sql = "INSERT INTO `Book`(`img`, `name`, `resume`, `price`, `ordre_ID`) VALUES (:img, :name, :resume, :price, :ordre_ID)";
         
         $params = [
@@ -68,7 +68,7 @@ class BookModel
     public function updateBook(): bool
     {
         $pdo = DataBase::connectPDO();
-        $ordre_ID = $_SESSION['userObject']->getId();
+        $ordre_ID = $_SESSION['user_id']->getId();
         $sql = "UPDATE `Book` SET `name` = :name, `img` = :img, `resume` = :resume, `price` = :price, `ordre_ID` = :ordre_ID WHERE `id` = :id";
         // associations des bonnes valeurs
         $params = [
@@ -94,6 +94,21 @@ class BookModel
         $queryStatus = $query->execute();
         return $queryStatus;
     }
+    public function getStockByName($name) {
+    $pdo = DataBase::connectPDO();
+    $sql = 'SELECT stock FROM Book WHERE name = :name';
+    $pdoStatement = $pdo->prepare($sql);
+    $pdoStatement->execute([':name' => $name]);
+    $stock = $pdoStatement->fetchColumn();
+    return $stock;
+}
+
+public function updateStockByName($name, $newStock) {
+    $pdo = DataBase::connectPDO();
+    $sql = 'UPDATE Book SET stock = :newStock WHERE name = :name';
+    $pdoStatement = $pdo->prepare($sql);
+    $pdoStatement->execute([':newStock' => $newStock, ':name' => $name]);
+}
 
     public function getId(): int
     {
@@ -154,7 +169,16 @@ class BookModel
     {
         $this->ordre_ID = $ordre_ID;
     }
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
+    public function setQuantity(int $quantity): int
+    {
+        $this->quantity = $quantity;
+    }
 }
+    
 
 
 ?>

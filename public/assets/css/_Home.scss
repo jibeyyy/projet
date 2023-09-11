@@ -2,17 +2,9 @@
     font-family: ShadowsIntoLight;
     src: url("../font/ShadowsIntoLight-Regular.ttf") format("TrueType");
 } // police pour le Nom de l'auteur
-h1 {
-    text-align: center;
-    color: #943a07;
-    border-bottom: solid 2px;
-    padding: 15px;
-    margin: 30px 15% 20px;
-    box-shadow: 5px 5px 5px #ab621b;
-    text-shadow: 1px 1px #000;
-}
-
-///////// section photo de l'auteur//////////
+///////////////////////////////////////////////////////////////////
+/////////////    SECTION ACCUEIL PHOTO DE PRESENTATION    /////////
+////////////////////////////////////////////////////////////////////
 .avatar {
     width: 90%;
     padding: 60px 0;
@@ -21,6 +13,20 @@ h1 {
     justify-content: center;
     background: linear-gradient(42deg, rgba(233, 233, 233, 1) 28%, rgba(208, 100, 2, 1) 100%);
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+        font-size: 3rem;
+        text-align: center;
+        color: #943a07;
+        border-bottom: solid 2px;
+        padding: 15px;
+        margin: 30px 15% 50px;
+        box-shadow: 5px 5px 5px #ab621b;
+        text-shadow: 1px 1px #000;
+        text-wrap: wrap;
+    }
 
     figure {
         height: 400px;
@@ -45,20 +51,90 @@ h1 {
 
 }
 
+/////////////////////////////////////////////////////////
+/////////////    SECTION A PROPOS DE L'AUTEUR    /////////
+//////////////////////////////////////////////////////////
 .about {
     width: 90%;
-    margin: 80px px auto;
+    border-radius: 20px;
+    margin: 80px auto;
     height: 500px;
-    /* padding: 86px; */
     display: flex;
-    justify-content: center;
-    background-color: aqua;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(304deg, rgba(233, 233, 233, 1) 32%, rgba(208, 100, 2, 1) 98%);
+    .aboutImg {
+        border-radius: 20px;
+    }
+    .aboutText {
+        border-bottom: 0.5px solid #ccc;
+        width: 400px;
+        height: 350px;
+        overflow: scroll;
+    }
+    p {
+        font-size: smaller;
+    }
+    .aboutTitle {
+
+        text-align: center;
+        color: #943a07;
+        border-bottom: solid 2px;
+        border-right: solid 0.5px;
+        margin: 10px 8% 10px;
+        padding-bottom: 10px;
+        box-shadow: 5px 5px 5px #ab621b;
+        text-shadow: 1px 1px #000;
+    }
+
+}
+
+/////////////////////////////////////////////////
+/////////////    SECTION CAROUSEL    ///////////
+////////////////////////////////////////////////
+.carousel-container {
+    position: relative;
+    width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
 }
 
 
-
-
-///////////// section a propos de l'auteur/////////
 @media only screen and (max-width: 800px) {
 
     h1 {

@@ -4,7 +4,9 @@
     <section id="shop">
         <?php foreach ($data as $book)
        { ?>
+       
             <article id="cart">
+                 <form method="POST" action="">
                 <div class="item1" id="item1">
                     <img class="imgShop" src="<?php echo  $base_uri[0].'/public/assets/img/'.$book->getImg(); ?>" alt="image livre Djue Koffi">
                 </div>                      
@@ -13,10 +15,11 @@
                     <div class="item3">
                         <p>Prix : <?php echo $book->getPrice() ?> €</p>
                         <small>Frais de port: 7€</small>
-                        <form method="POST" action="">
+                           
                             <label for="quantity">Quantité :</label>
+                            
                             <input type="number" name="quantity" id="quantity" min="1" max="9" value="1">
-                            <input type="submit" name="Panier" value="Ajouter au panier">
+                            <input type="submit" name="paner" value="Ajouter au panier">
                         </form>
                     </div>
                 </div>
@@ -27,9 +30,9 @@
 
     </section>
     <img src="" alt="deco séparateur">----------------------</img>
-    <section id="paner" class="paner">
+    <section id="paner">
 
-        <form action="">
+        <form class="paner" action="">
         <h3>Mon panier</h3>
         <table id="paner">
             <th>
@@ -38,14 +41,14 @@
                 <td>prix</td>
             </th>
             <tr>
-                <td id="img">
-                   
+                <td id="name">
+                   <?php echo $book->getName(); ?>
                 </td>
-                <td id="resume">
-                    
+                <td id="quantity">
+                    <?php echo $book->getQuantity(); ?>
                 </td>
                 <td id="price">
-                   
+                   <?php echo $book->getPrice(); ?>
                 </td>
             </tr>
         </table>
