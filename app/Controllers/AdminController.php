@@ -42,11 +42,16 @@ class AdminController extends MainController { // connexion à l'administrateur 
                         $this->data['error'] = '<div class="alert alert-danger" role="alert">L\'article n\'existe pas</div>';
                     } else {
                        
-                        $this->data['Book'] = $Book;
+                        $this->data['book'] = $book;
+                      
                     }
                 }
             }
         } 
+        
+        $bookModel = new BookModel();
+        $books = $bookModel->getAllBooks(); 
+        $this->data['books'] = $books;
         $this->render();
     }
     
@@ -60,6 +65,7 @@ class AdminController extends MainController { // connexion à l'administrateur 
         $resume = filter_input(INPUT_POST, 'resume', FILTER_SANITIZE_SPECIAL_CHARS);
         $img = filter_input(INPUT_POST, 'img', FILTER_SANITIZE_URL);
         $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_SPECIAL_CHARS);
+        $stock = filter_input(INPUT_POST, 'stock', FILTER_SANITIZE_SPECIAL_CHARS);
 
 
         $bookModel = new BookModel();
@@ -68,6 +74,7 @@ class AdminController extends MainController { // connexion à l'administrateur 
         $bookModel->setResume($resume);
         $bookModel->setImg($img);
         $bookModel->setPrice($price);
+        $bookModel->setStock($stock);
 
         // on déclenche l'instertion d'article dans une conditions car PDO va renvoyer true ou false
         if ($bookModel->insertBook()) {
@@ -94,6 +101,8 @@ class AdminController extends MainController { // connexion à l'administrateur 
         $bookModel->setResume($resume);
         $bookModel->setImg($img);
         $bookModel->setPrice($price);
+        
+        
         if ($bookModel->updateBook()) {
             $this->data['infos'] = '<div class="alert alert-success" role="alert">Article enregistré avec succès</div>';
         } else {
@@ -102,10 +111,10 @@ class AdminController extends MainController { // connexion à l'administrateur 
     }
 
     // méthode de suppresion d'un article
-    public function removeBook(): void // suppression d'un article en vente
+    public function removeBook(): void
     {
         // récupération et filtrage du champs 
-        $bookId = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
+        $bookId = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_SPECIAL_CHARS);
 
         if (BookModel::deleteBook($bookId)) {
             $this->data['infos'] = '<div class="alert alert-success d-inline-block mx-4" role="alert">Article supprimé avec succès</div>';

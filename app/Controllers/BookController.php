@@ -9,6 +9,7 @@ class BookController extends MainController {
     public function renderBook() {
         $bookModel = new BookModel();
         $books = $bookModel->getAllBooks(); 
+
         $this->data = $books;
         $this->render();
     }

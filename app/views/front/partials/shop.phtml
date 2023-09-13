@@ -1,61 +1,108 @@
-<main class="mainShop">
-    <h2>Boutique</h2>
+<?php var_dump($data); ?>
 
-    <section id="shop">
-        <?php foreach ($data as $book)
-       { ?>
+<main class="mainShop">
+    <h1> La Boutique</h1>
+    <p class="paraTitle">voici la liste des livres en vente </p> 
+    <section class="shop">
        
-            <article id="cart">
-                 <form method="POST" action="">
-                <div class="item1" id="item1">
-                    <img class="imgShop" src="<?php echo  $base_uri[0].'/public/assets/img/'.$book->getImg(); ?>" alt="image livre Djue Koffi">
-                </div>                      
-                <div class="item2" id="item2">
-                    <span id="resume"><?php echo $book->getResume(); ?></span>
-                    <div class="item3">
-                        <p>Prix : <?php echo $book->getPrice() ?> €</p>
-                        <small>Frais de port: 7€</small>
+        <h2>livre 1</h2>
+        <?php $book = $data[0]; ?>
+            <article class="cart">
+                
+               <div class="item0 item"> 
+               <h3><?php echo $book->getName(); ?></h3>
+               </div>
+               
+               
+                <div class="item1 item">
+                    <img class="imgCart" src="<?php echo  $base_uri[0].'/public/assets/img/'.$book->getImg(); ?>" alt="image livre Djue Koffi" width="200" height="250">
+                </div> 
+                
+                
+                <div class="item2 item">
+                    <span><?= $book->getResume(); ?></span>
+                    </div>
+                    
+                    
+                    <div class="item3 item">
+                         <form class="itemForm" method="POST">
+                        <p>Prix : <?php echo $book->getPrice(); ?> €</p>
+                        <small>Frais de port: 7€</small><br>
                            
-                            <label for="quantity">Quantité :</label>
+                            <label>Quantité :</label><br>
                             
-                            <input type="number" name="quantity" id="quantity" min="1" max="9" value="1">
+                            <input type="number" name="quantity" min="1" max="9" value="1"><br>
                             <input type="submit" name="paner" value="Ajouter au panier">
                         </form>
                     </div>
-                </div>
-            </article>
-        <?php } ?>
-    </section>
-</main>
+          </article>
+        
+       <div class="separate">
+           
+       </div>
+       
+       <h2>livre 2</h2>
+       
+        <?php $book = $data[1]; ?>
+            <article class="cart">
+                
+               <div class="item0 item"> 
+               <h3><?php echo $book->getName(); ?></h3>
+               </div>
 
+                <div class="item1 item">
+                    <img class="imgCart" src="<?php echo  $base_uri[0].'/public/assets/img/'.$book->getImg(); ?>" alt="image livre Djue Koffi" width="200" height="250">
+                </div> 
+                
+                <div class="item2 item">
+                    <span><?= $book->getResume(); ?></span>
+                    </div>
+                    
+                    <div class="item3 item">
+                         <form class="itemForm" method="POST">
+                        <p>Prix : <?php echo $book->getPrice(); ?> €</p>
+                        <small>Frais de port: 7€</small><br>
+                           
+                            <label>Quantité :</label><br>
+                            
+                            <input type="number" name="quantity" min="1" max="9" value="1"><br>
+                            <input type="submit" name="paner" value="Ajouter au panier">
+                        </form>
+                    </div>
+          </article>
     </section>
-    <img src="" alt="deco séparateur">----------------------</img>
-    <section id="paner">
 
-        <form class="paner" action="">
-        <h3>Mon panier</h3>
-        <table id="paner">
-            <th>
-                <td>livres</td>
-                <td>quantité</td>
-                <td>prix</td>
-            </th>
+    <img class="imgShop" src="./assets/img/separate.png" alt="deco séparateur">
+    <section class="sectionPaner">
+
+       
+        <h2>Mon panier</h2>
+        <table class="tablePaner">
+            <thead>
             <tr>
-                <td id="name">
-                   <?php echo $book->getName(); ?>
+                <th>livres</th>
+                <th>quantité</th>
+                <th>prix €</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                  
                 </td>
-                <td id="quantity">
-                    <?php echo $book->getQuantity(); ?>
-                </td>
-                <td id="price">
-                   <?php echo $book->getPrice(); ?>
+                <td>
+                    
+                <td>
+                   
                 </td>
             </tr>
+            </tbody>
         </table>
-        <input type="submit" name="valiateBtn" value="Valider le panier"></input>
-</form>
+         
+        <input class="btnPaner" type="submit" name="valiateBtn" value="Valider le panier">
+
     </section>
-    <img src="" alt="deco séparateur">----------------------</img>
+    <img class="imgShop" src="./assets/img/separate.png" alt="deco séparateur">
 </main>
 
 

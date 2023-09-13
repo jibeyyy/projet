@@ -1,4 +1,4 @@
-<form action="" method="POST">
+<form method="POST">
     <label for="name">Ajout d'un titre</label><br>
     <input type="text" name="name" id="name"/><br>
     
@@ -7,14 +7,11 @@
     
       <label for="resume">la description</label><br>
       <textarea id="resume" maxlength="300" name="resume" cols="30 " rows="8 " placeholder="déscription ici "></textarea><br>
-
-       <input type="submit" name="addNewForm" value="Mettre à jour/créé article"/> 
+          
+       <label for="price">Ajout d'un prix</label><br>
+    <input type="number" name="price" id="price"/><br>
+           <label for="stock">Ajout d'un stock</label><br>
+    <input type="number" name="stock" id="stock"/><br>
+        
+       <input type="submit" name="updateBook" value="modifié l'article"/> 
 </form>
-
-<div class="contenair">
- <div class="itemNew">
- <div class="titleNew">titre</div>
- <div class="resumeNew">description</div>
- </div>
- <div class="imgNew">image falcutatif</div>
-</div>

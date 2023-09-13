@@ -11,7 +11,7 @@ class BookModel
     private $img;
     private $resume;
     private $price;
-    private $ordre_ID;
+    private $stock;
 
 
     public static function getAllBooks() {
@@ -50,15 +50,14 @@ class BookModel
     public function insertBook(): bool
     {
         $pdo = DataBase::connectPDO();
-        $ordre_ID = $_SESSION['user_id']->getId();
-        $sql = "INSERT INTO `Book`(`img`, `name`, `resume`, `price`, `ordre_ID`) VALUES (:img, :name, :resume, :price, :ordre_ID)";
+        $sql = "INSERT INTO `Book`(`img`, `name`, `resume`, `price`, `stock`) VALUES (:img, :name, :resume, :price, :stock)";
         
         $params = [
             'name' => $this->name,
             'img' => $this->img,
             'resume' => $this->resume,
             'price' => $this->price,
-            'ordre_ID' => $this->ordre_ID
+            'stock' => $this->stock
         ];
         $query = $pdo->prepare($sql);
         $queryStatus = $query->execute($params);
@@ -68,15 +67,16 @@ class BookModel
     public function updateBook(): bool
     {
         $pdo = DataBase::connectPDO();
-        $ordre_ID = $_SESSION['user_id']->getId();
-        $sql = "UPDATE `Book` SET `name` = :name, `img` = :img, `resume` = :resume, `price` = :price, `ordre_ID` = :ordre_ID WHERE `id` = :id";
+       $user_id = $_SESSION['user_id'];
+        $sql = "UPDATE `Book` SET `name` = :name, `img` = :img, `resume` = :resume, `price` = :price, `user_id` = :user_id WHERE `id` = :id";
         // associations des bonnes valeurs
         $params = [
             'id' => $this->id,
             'name' => $this->name,
             'img' => $this->img,
             'resume' => $this->resume,
-            'price' => $this->price,
+            'price' => $this->price
+            
             
         ];
         $query = $pdo->prepare($sql);
@@ -115,7 +115,7 @@ public function updateStockByName($name, $newStock) {
         return $this->id;
     }
 
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -135,7 +135,7 @@ public function updateStockByName($name, $newStock) {
         return $this->price;
     }
 
-    public function setPrice(int $price): int
+    public function setPrice(int $price)
     {
         $this->price = $price;
     }
@@ -155,19 +155,19 @@ public function updateStockByName($name, $newStock) {
         return $this->resume;
     }
 
-    public function setResume(string $resume): string
+    public function setResume(string $resume)
     {
         $this->resume = $resume;
     }
 
-    public function getOrdreId(): int
+    public function getStock(): int
     {
-        return $this->ordre_ID;
+        return $this->stock;
     }
 
-    public function setOrdreId(int $ordre_ID): string
+    public function setStock(int $stock)
     {
-        $this->ordre_ID = $ordre_ID;
+        $this->stock = $stock;
     }
     public function getQuantity(): int
     {
