@@ -6,19 +6,19 @@ use App\Models\UserModel;
 class UserController extends MainController {
     
     public function renderUser() {
-        if ($this->view === 'logout') {
-            $this->logout();
-        } else {
-            if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                if (isset($_POST["registerForm"])) {
-                    $this->register();
-                } elseif (isset($_POST["loginForm"])) {
-                    $this->login();
-                }
-            }
+    
+    if (isset($_POST["logout"])) {
+        $this->logout();
+    } else {
+        if (isset($_POST["registerForm"])) {
+            $this->register();
+        } elseif (isset($_POST["loginForm"])) {
+            $this->login();
         }
-        $this->render();
     }
+    $this->render();
+
+}
 
     public function register() {
         $error = 0;
@@ -30,7 +30,7 @@ class UserController extends MainController {
         
         if (strlen($password) < 7) {
             $error = 1;
-            $this->data[] = '<div class="alert alert-danger" role="alert">Le mot de passe doit contenir au moins 8 caractères.</div>';
+            $this->data[] = '<div class="alert" role="alert">Le mot de passe doit contenir au moins 7 caractères.</div>';
         }
         
         if ($error === 0) {
@@ -46,56 +46,47 @@ class UserController extends MainController {
             
             if ($user->checkEmail()) {
                 $error = 1;
-                $this->data[] = '<div class="alert alert-danger" role="alert">Cet email est déjà pris, veuillez en choisir un autre.</div>';
+                $this->data[] = '<div class="alert role="alert">Cet email est déjà pris, veuillez en choisir un autre.</div>';
             }
             
             if ($error === 0) {
                 if ($user->registerUser()) {
-                    $this->data[] =  '<div class="alert alert-success" role="alert">Enregistrement réussi, vous pouvez maintenant vous connecter</div>';
+                    $this->data[] =  '<div class="succe" role="alert">Enregistrement réussi, vous pouvez maintenant vous connecter</div>';
                 } else {
-                    $this->data[] = '<div class="alert alert-danger" role="alert">Il y a eu une erreur lors de l\'enregistrement</div>';
+                    $this->data[] = '<div class="alert" role="alert">Il y a eu une erreur lors de l\'enregistrement</div>';
                 }
             }
         }
     }
- public function login(): void
-    {
-
-        $errors = 0;
-        $user = new UserModel();
-        $user = $user->getUserByEmail($_POST['email']);
-        if (is_null($user)) {
-           
-            $errors = 1;
-        } 
-        else {
-            // sinon on vérifie si le mot de passe de l'utilisateur en bdd et celui renseigné dans le formulaire concordent
-            if (password_verify($_POST['password'], $user->getPassword())) {
-               
-                $_SESSION['user_id'] = $user->getId();
-                $_SESSION['role'] = $user->getRole();                
-                
-                $this->data[] =  '<div class="alert alert-success" role="alert">connexion réussie ! votre compte doit être modifié par un admin pour que vous ayez accès à l\'administration</div>';
-
-                // on créé une url de redirection
-                $base_uri = explode('index.php', $_SERVER['SCRIPT_NAME']);
-                // on redirige vers la page admin
-                if($user->getRole() < 3){
-                    header('Location:' . $base_uri[0] . 'admin');
-                }                
-            } 
-            else {
-               
-                $errors = 1;
+public function login(): void
+{
+    $errors = 0;
+    $user = new UserModel();
+    $user = $user->getUserByEmail($_POST['email']);
+    
+    if (is_null($user)) {
+        $errors = 1;
+    } else {
+        if (password_verify($_POST['password'], $user->getPassword())) {
+            $_SESSION['user_id'] = $user->getId();
+            $_SESSION['user_role'] = $user->getRole();
+            echo '<div class="succe" role="alert">connexion réussie !</div>';
+            
+            $base_uri = explode('index.php', $_SERVER['SCRIPT_NAME']);
+            
+            if ($user->getRole() < 3) {
+                header('Location:' . $base_uri[0] . 'admin');
+                 echo '<div class="succe" role="alert">connexion réussie !</div>';
+            } elseif ($user->getRole() >= 3) {
+                header('Location:' . $base_uri[0] . 'user');
+                 echo '<div class="succe" role="alert">connexion réussie !</div>';
             }
+        } else {
+            $errors = 1;
+            echo '<div class="alert" role="alert">Email ou mot de passe incorrect</div>';
         }
-        // s'il y à des erreurs
-        if ($errors > 0) {
-            //On stock dans data le message d'erreur à afficher dans la vue
-            $this->data[] = '<div class="alert alert-danger" role="alert">Email ou mot de passe incorrect</div>';
-        }
-     
     }
+}
 
  // déconexion d'un utilisateur
  public function logout(): void 
@@ -105,35 +96,8 @@ class UserController extends MainController {
         session_destroy();
         // création de l'url de redirection
         $base_uri = explode('index.php', $_SERVER['SCRIPT_NAME']);
-        // on redirige vers la home
+        
         header('Location:' . $base_uri[0] . 'home');
     }
- } 
-
-
-
-
-
-
-
-// public function login(): void
-// {
-//     $errors = 0;
-//     $email = $_POST['email'];
-//     $password = $_POST['password'];
-
-//     $user = UserModel::getUserByEmail($email, $password);
-
-//     if ($user === null) {
-        
-//         $errors = 1;
-//         echo 'erreur connexion';
-//         }
-//         else if ($errors = 0 && $user->getRole < 3){
-//           header('Location:' . $base_uri[0] . 'admin');
-//         }
-//      else {
-//         header('Location:' . $base_uri[0] . 'home');
-       
-//     }
-// }
+ 
+}

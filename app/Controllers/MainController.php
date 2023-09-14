@@ -18,7 +18,6 @@ class MainController {
               
 
         $base_uri = explode('/public/', $_SERVER['REQUEST_URI']);
-    
         $data = $this->data;
         require __DIR__ . '/../views/' . $this->viewType . '/layouts/header.phtml';
         require __DIR__ . '/../views/' . $this->viewType . '/partials/' . $this->view . '.phtml';
@@ -30,23 +29,28 @@ class MainController {
 protected function checkUserAuthorization(int $role): void
 {
  
-    
-    if (isset($_SESSION['userObject'])) {
-        $currentUser = $_SESSION['userObject'];
-        $currentUserRole = $currentUser->getRole();
+    $redirect = explode('/public/', $_SERVER['REQUEST_URI']);
+    if (isset($_SESSION['user_id'])) {
+        $currentUser = $_SESSION['user_id'];
+        $currentUserRole = $_SESSION['user_role'];
         
         if ($currentUserRole <= $role) {
-            header('Location: /public/admin'); // Redirige vers la page d'administration
+             
+            header('Location: ' . $redirect[0] . '/public/admin');
             exit();
-        } else {
+        } 
+        elseif ($currentUserRole == 3) {
+            header('Location: ' . $redirect[0] . '/public/user');
+            exit();
+        }
+        else{
             http_response_code(403);
             $this->view = '403';
             $this->render();
             exit();
         }
     } else {
-        $redirect = explode('/public/', $_SERVER['REQUEST_URI']);
-        header('Location: ' . $redirect[0] . '/public/home');
+        header('Location: ' . $redirect[0] . '/public/login');
         exit();
     }
 }

@@ -140,6 +140,18 @@ body {
   font-size: 1.2em;
 }
 
+.alert {
+  width: 200px;
+  height: 100px;
+  background-color: #FC392A;
+}
+
+.succe {
+  width: 200px;
+  height: 100px;
+  background-color: #43FC2A;
+}
+
 @font-face {
   font-family: ShadowsIntoLight;
   src: url("../font/ShadowsIntoLight-Regular.ttf") format("TrueType");

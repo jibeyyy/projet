@@ -28,6 +28,11 @@
                         </tbody>
                 </table>
                 <span id="userProfil"></span>
-                <input type="submit" name="deleteProfil" value="supprimer mon compte"> <!--deleteprofil a créé-->
+                <form method="POST" action="<?= $base_uri[0] ?>/public/logout">
+                   
+                    <input type="submit" name="logout" value="déconnexion"/>
+                    <input type="submit" name="deleteProfil" value="supprimer mon compte"> 
+                 </form>
             </div>
-        </section></main>
+        </section>
+</main>

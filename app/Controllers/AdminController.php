@@ -10,7 +10,7 @@ class AdminController extends MainController { // connexion à l'administrateur 
     public function renderAdmin(): void
     {
     
-    
+        $this->checkUserAuthorization(1);
        
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (isset($_POST["insertBook"])) {
