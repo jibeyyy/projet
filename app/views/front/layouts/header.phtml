@@ -16,20 +16,27 @@
 </head>
 
 <body>
-    <header class="header">
-        <img src="./assets/img/drapeaux.png" alt="logo site Djue Koffi" width="50" height="60">
-        <nav>
-            <ul>
-                <li><a href="<?=$base_uri[0] ?>/public/home">Accueil</a></li>
-                <li><a href="<?=$base_uri[0] ?>/public/shop">shop</a></li>
-                <li><a href="<?=$base_uri[0] ?>/public/contact">contact</a></li>
-                <li><a href="<?=$base_uri[0] ?>/public/login">connexion</a></li>
-                <li><a href="<?=$base_uri[0] ?>/public/register">créé compte</a></li>
-            </ul>
+ <header class="header">
+    <img src="./assets/img/drapeaux.png" alt="logo site Djue Koffi" width="50" height="60">
+    <nav>
+        <ul>
+            <li><a href="<?=$base_uri[0] ?>/public/home">Accueil</a></li>
+            <li><a href="<?=$base_uri[0] ?>/public/shop">Shop</a></li>
+            <li><a href="<?=$base_uri[0] ?>/public/contact">Contact</a></li>
             
-        </nav>
-       
-    </header>
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <li><a href="<?=$base_uri[0] ?>/public/user">Mon compte</a></li>
+            <?php endif; ?>
+            
+            <?php if(!isset($_SESSION['user_id'])): ?>
+                <li><a href="<?=$base_uri[0] ?>/public/login">Connexion</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/register">Créer compte</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+</header>
+
+
     <div id="mySidenav" class="sidenav">
         <a id="closeBtn" href="#" class="close">×</a>
         <ul>

@@ -9,8 +9,9 @@ class AdminController extends MainController { // connexion à l'administrateur 
     
     public function renderAdmin(): void
     {
-    
-        $this->checkUserAuthorization(1);
+        
+        $this->viewType = 'admin';
+        $this->autorizeUser(1);
        
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (isset($_POST["insertBook"])) {
@@ -25,7 +26,7 @@ class AdminController extends MainController { // connexion à l'administrateur 
             }
         }
 
-        $this->viewType = 'admin';
+        
        
         if (isset($this->subPage)) {
             
@@ -39,7 +40,7 @@ class AdminController extends MainController { // connexion à l'administrateur 
                  
                     if (!$book) {
                        
-                        $this->data['error'] = '<div class="alert alert-danger" role="alert">L\'article n\'existe pas</div>';
+                        $this->data['error'] = '<div class="alert" role="alert">L\'article n\'existe pas</div>';
                     } else {
                        
                         $this->data['book'] = $book;
@@ -79,10 +80,10 @@ class AdminController extends MainController { // connexion à l'administrateur 
         // on déclenche l'instertion d'article dans une conditions car PDO va renvoyer true ou false
         if ($bookModel->insertBook()) {
             // donc si la requête d'insertion s'est bien passée, on renvoie true et on stocke un message de succès dans la propriété data
-            $this->data[] = '<div class="alert alert-success" role="alert">Article enregistré avec succès</div>';
+            $this->data[] = '<div class="succe" role="alert">Article enregistré avec succès</div>';
         } else {
             // sinon, stocke un message d'erreur
-            $this->data[] = '<div class="alert alert-danger" role="alert">Il s\'est produit une erreur</div>';
+            $this->data[] = '<div class="alert" role="alert">Il s\'est produit une erreur</div>';
         }
     }
 
@@ -104,9 +105,9 @@ class AdminController extends MainController { // connexion à l'administrateur 
         
         
         if ($bookModel->updateBook()) {
-            $this->data['infos'] = '<div class="alert alert-success" role="alert">Article enregistré avec succès</div>';
+            $this->data['infos'] = '<div class="succe" role="alert">Article enregistré avec succès</div>';
         } else {
-            $this->data['infos'] = '<div class="alert alert-danger" role="alert">Il s\'est produit une erreur</div>';
+            $this->data['infos'] = '<div class="alert" role="alert">Il s\'est produit une erreur</div>';
         }
     }
 
@@ -117,9 +118,9 @@ class AdminController extends MainController { // connexion à l'administrateur 
         $bookId = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_SPECIAL_CHARS);
 
         if (BookModel::deleteBook($bookId)) {
-            $this->data['infos'] = '<div class="alert alert-success d-inline-block mx-4" role="alert">Article supprimé avec succès</div>';
+            $this->data['infos'] = '<div class="succe" role="alert">Article supprimé avec succès</div>';
         } else {
-            $this->data['infos'] = '<div class="alert alert-danger" role="alert">Il s\'est produit une erreur</div>';
+            $this->data['infos'] = '<div class="alert" role="alert">Il s\'est produit une erreur</div>';
         }
     }
 }

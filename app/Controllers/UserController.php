@@ -6,16 +6,18 @@ use App\Models\UserModel;
 class UserController extends MainController {
     
     public function renderUser() {
-    
-    if (isset($_POST["logout"])) {
-        $this->logout();
-    } else {
-        if (isset($_POST["registerForm"])) {
-            $this->register();
-        } elseif (isset($_POST["loginForm"])) {
-            $this->login();
+        if($this->view === 'user'){
+                $this->autorizeUser(3);  
         }
-    }
+        if (isset($_POST["logout"])) {
+            $this->logout();
+        } else {
+            if (isset($_POST["registerForm"])) {
+                $this->register();
+            } elseif (isset($_POST["loginForm"])) {
+                $this->login();
+            }
+        }
     $this->render();
 
 }
@@ -77,6 +79,7 @@ public function login(): void
             if ($user->getRole() < 3) {
                 header('Location:' . $base_uri[0] . 'admin');
                  echo '<div class="succe" role="alert">connexion réussie !</div>';
+                 
             } elseif ($user->getRole() >= 3) {
                 header('Location:' . $base_uri[0] . 'user');
                  echo '<div class="succe" role="alert">connexion réussie !</div>';

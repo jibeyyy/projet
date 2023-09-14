@@ -16,7 +16,7 @@ class ContactController extends MainController {
       }
                 
                 public function EnvoiForm (){
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  
     $nom = $_POST['nom'];
     $email = $_POST['email'];
     $message = $_POST['message'];
@@ -35,5 +35,5 @@ class ContactController extends MainController {
 }
 
 }
-}
+
 ?>

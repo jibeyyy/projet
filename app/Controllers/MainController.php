@@ -26,29 +26,19 @@ class MainController {
         
     }
     
-protected function checkUserAuthorization(int $role): void
+protected function autorizeUser(int $role): void
 {
- 
+
     $redirect = explode('/public/', $_SERVER['REQUEST_URI']);
     if (isset($_SESSION['user_id'])) {
         $currentUser = $_SESSION['user_id'];
         $currentUserRole = $_SESSION['user_role'];
         
-        if ($currentUserRole <= $role) {
-             
-            header('Location: ' . $redirect[0] . '/public/admin');
-            exit();
-        } 
-        elseif ($currentUserRole == 3) {
+        if ($currentUserRole != 1 && $this->view === 'admin') {
             header('Location: ' . $redirect[0] . '/public/user');
-            exit();
+           exit();
         }
-        else{
-            http_response_code(403);
-            $this->view = '403';
-            $this->render();
-            exit();
-        }
+
     } else {
         header('Location: ' . $redirect[0] . '/public/login');
         exit();

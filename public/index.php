@@ -14,7 +14,9 @@ const AVAILABLE_ROUTES = [
     'admin' => ['controller' => 'AdminController', 'action' => 'renderAdmin'],
     '404' => ['controller' => 'ErrorController', 'action' => 'render'],
     'shop' => ['controller'=> 'BookController', 'action' =>'renderBook'],
-    'user' => ['controller'=> 'MainController', 'action' => 'render'],
+    'user' => ['controller'=> 'UserController', 'action' => 'renderUser'],
+    '403'=> ['controller'=> 'MainController', 'action' => 'render'],
+    
 ];
 
 $page = 'home';
