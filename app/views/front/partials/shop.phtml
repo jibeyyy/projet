@@ -1,30 +1,21 @@
-<?php var_dump($data); ?>
 
 <main class="mainShop">
     <h1> La Boutique</h1>
     <p class="paraTitle">voici la liste des livres en vente </p> 
-    <section class="shop">
-       
-        <h2>livre 1</h2>
-        <?php $book = $data[0]; ?>
-            <article class="cart">
-                
-               <div class="item0 item"> 
-               <h3><?php echo $book->getName(); ?></h3>
-               </div>
-               
-               
-                <div class="item1 item">
-                    <img class="imgCart" src="<?php echo  $base_uri[0].'/public/assets/img/'.$book->getImg(); ?>" alt="image livre Djue Koffi" width="200" height="250">
-                </div> 
-                
-                
-                <div class="item2 item">
-                    <span><?= $book->getResume(); ?></span>
+    <div class="listBook">
+            
+            <div class="book">
+                <?php foreach($data as $book):?>
+                <div class="nameBook">
+                    <h3><?= $book->getName(); ?></h3>
+                </div>
+                    <div class="bookImg">
+                        <img class="imgCart" src="<?php echo  $base_uri[0].'/public/assets/img/'.$book->getImg(); ?>" alt="image livre Djue Koffi" width="200" height="250">
                     </div>
-                    
-                    
-                    <div class="item3 item">
+                    <div class="bookDescrip">
+                        <?= $book->getResume(); ?>
+                    </div>
+                    <div class="basketBook">
                          <form class="itemForm" method="POST">
                         <p>Prix : <?php echo $book->getPrice(); ?> €</p>
                         <small>Frais de port: 7€</small><br>
@@ -35,42 +26,10 @@
                             <input type="submit" name="paner" value="Ajouter au panier">
                         </form>
                     </div>
-          </article>
-        
-       <div class="separate">
-           
-       </div>
-       
-       <h2>livre 2</h2>
-       
-        <?php $book = $data[1]; ?>
-            <article class="cart">
-                
-               <div class="item0 item"> 
-               <h3><?php echo $book->getName(); ?></h3>
-               </div>
-
-                <div class="item1 item">
-                    <img class="imgCart" src="<?php echo  $base_uri[0].'/public/assets/img/'.$book->getImg(); ?>" alt="image livre Djue Koffi" width="200" height="250">
-                </div> 
-                
-                <div class="item2 item">
-                    <span><?= $book->getResume(); ?></span>
-                    </div>
-                    
-                    <div class="item3 item">
-                         <form class="itemForm" method="POST">
-                        <p>Prix : <?php echo $book->getPrice(); ?> €</p>
-                        <small>Frais de port: 7€</small><br>
-                           
-                            <label>Quantité :</label><br>
-                            
-                            <input type="number" name="quantity" min="1" max="9" value="1"><br>
-                            <input type="submit" name="paner" value="Ajouter au panier">
-                        </form>
-                    </div>
-          </article>
-    </section>
+                   
+                    <?php endforeach;?>
+                </div>
+            </div>
 
     <img class="imgShop" src="./assets/img/separate.png" alt="deco séparateur">
     <section class="sectionPaner">
@@ -79,23 +38,20 @@
         <h2>Mon panier</h2>
         <table class="tablePaner">
             <thead>
-            <tr>
-                <th>livres</th>
-                <th>quantité</th>
-                <th>prix €</th>
-            </tr>
+                 <tr>
+                     <th>Livres</th>
+                     <th>Quantité</th>
+                     <th>Prix €</th>
+                     <th>Total</th>
+                 </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>
-                  
-                </td>
-                <td>
-                    
-                <td>
-                   
-                </td>
-            </tr>
+                 <tr>
+                    <td>livre A</td>
+                    <td>1</td>
+                    <td>15€</td>
+                    <td></td>
+                 </tr>
             </tbody>
         </table>
          
@@ -103,6 +59,31 @@
 
     </section>
     <img class="imgShop" src="./assets/img/separate.png" alt="deco séparateur">
+     <section>
+            <div class="titleSelect">
+                 <h3>Vous recherchez un élément?</h3>
+                 <p>Voci un selecteur de page pour mieux vous retrouvez à tout de suite dans les prochaines pages </p>
+            </div>
+             <div class="select">
+            <label for="selecteur"></label>
+            <select id="selecteur" onchange="nextPage()">
+                <optgroup label="Sélectionnez une page :">
+                    <option>Sélectionnez un onglet :</option>
+        <option value="<?=$base_uri[0] ?>/public/home">Accueil du site</option>
+        <option value="<?=$base_uri[0] ?>/public/home">A propos de l'Auteur</option>
+        <option value="<?=$base_uri[0] ?>/public/home">Photos</option>
+        <option value="<?=$base_uri[0] ?>/public/shop">Boutique</option>
+        <option value="<?=$base_uri[0] ?>/public/shop">Panier</option>
+        <option value="<?=$base_uri[0] ?>/public/contact">Formulaire de Contact</option>
+        <option value="<?=$base_uri[0] ?>/public/contact">Coordonnées</option>
+        <option value="<?=$base_uri[0] ?>/public/login">Connexion</option>
+        <option value="<?=$base_uri[0] ?>/public/user">Mon compte</option>
+        <option value="<?=$base_uri[0] ?>/public/register">Créer compte</option>
+       </optgroup>
+    </select>
+        </div>
+        </section>
 </main>
+
 
 

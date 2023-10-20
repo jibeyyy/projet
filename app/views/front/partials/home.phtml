@@ -40,25 +40,83 @@
                     in futurum.</p>
                 </div>
             </article>
+             <article class="aboutabout" id="aboutabout">
+                     <h2 class="aboutTitle">A propos de l'Auteur</h2>
+                     <div>
+                          <img src="./assets/img/avatar.jpg" alt="portrait de Mr Djue Koffi Mathieu" width="300" height="300">
+                          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+                    magna aliquam erat volutpat.</p>
+                    
+                            <p>Ut wisi enim ad minim veniam,
+                    quis nostrud exerci tation ullamcorper suscipit lobortis nisl
+                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
+                    dolor in hendrerit in vulputate velit esse molestie consequat,
+                    vel illum dolore eu feugiat nulla facilisis at vero eros et
+                    accumsan et iusto odio dignissim qui blandit praesent luptatum
+                    zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                           <p>
+                    Nam liber tempor cum soluta nobis eleifend option congue
+                    nihil imperdiet doming id quod mazim placerat facer possim
+                    assum. Typi non habent claritatem insitam; est usus legentis
+                    in iis qui facit eorum claritatem. Investigationes
+                    demonstraverunt lectores legere me lius quod ii legunt saepius.
+                    Claritas est etiam processus dynamicus, qui sequitur mutationem
+                    consuetudium lectorum. Mirum est notare quam littera gothica,
+                    quam nunc putamus parum claram, anteposuerit litterarum formas
+                    humanitatis per seacula quarta decima et quinta decima. Eodem
+                    modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
+                    in futurum.
+                          </p>
+                    </div>
+
+            </article>
             
-
-        <section class="carousel">
-            <p>Voici des photos illustrant certain passage des livres</p>
-            <div class="carousel-container">
-    <div class="carousel">
-        <div class="carousel-item">
-            <img src="./assets/img/imagecar1.jpg" alt="village cote d'ivoir">
+        <section class="slideCarousel">
+            <div>
+                <h2>photos ilustratrices</h2>
+                <p>Voici quelques photos illustrant certains passages du livre</p>
+            </div>
+            <div class="carousel">
+                <div class="sliderNav">
+                    <button onclick="previous()" class="sliderNavBut butPreview">Précédent</button>
+                    <button onclick="next()" class="sliderNavBut butNext">suivant</button>
+                </div>
+                <div class="sliderContent">
+                    <div class="sliderItem">
+                        <img src="./assets/img/imagecar1.jpg" alt="image carousel 1 cote d'Ivoire">
+                    </div>
+                    <div class="sliderItem">
+                        <img src="./assets/img/imagecar2.jpg" alt="image carousel 2 cote d'Ivoire">
+                    </div>
+                    <div class="sliderItem">
+                        <img src="./assets/img/imagecar3.jpg" alt="image carousel 3 cote d'Ivoire">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="titleSelect">
+                 <h3>Vous recherchez un élément?</h3>
+                 <p>Voci un selecteur de page pour mieux vous retrouvez à tout de suite dans les prochaines pages </p>
+            </div>
+             <div class="select">
+            <label for="selecteur"></label>
+            <select id="selecteur" onchange="nextPage()">
+                <optgroup label="Sélectionnez une page :">
+                    <option>Sélectionnez un onglet :</option>
+        <option value="<?=$base_uri[0] ?>/public/home">Accueil du site</option>
+        <option value="<?=$base_uri[0] ?>/public/home">A propos de l'Auteur</option>
+        <option value="<?=$base_uri[0] ?>/public/home">Photos</option>
+        <option value="<?=$base_uri[0] ?>/public/shop">Boutique</option>
+        <option value="<?=$base_uri[0] ?>/public/shop">Panier</option>
+        <option value="<?=$base_uri[0] ?>/public/contact">Formulaire de Contact</option>
+        <option value="<?=$base_uri[0] ?>/public/contact">Coordonnées</option>
+        <option value="<?=$base_uri[0] ?>/public/login">Connexion</option>
+        <option value="<?=$base_uri[0] ?>/public/user">Mon compte</option>
+        <option value="<?=$base_uri[0] ?>/public/register">Créer compte</option>
+       </optgroup>
+    </select>
         </div>
-        <div class="carousel-item">
-            <img src="./assets/img/imagecar2.jpg" alt="route cote d'ivoir">
-        </div>
-        <div class="carousel-item">
-            <img src="./assets/img/imagecar3.jpg" alt="cacaoyer cote d'ivoir">
-        </div>
-    </div>
-    <button class="prev-btn">&#8249;</button>
-    <button class="next-btn">&#8250;</button>
-</div>
-
         </section>
     </main>

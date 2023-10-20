@@ -1,27 +1,14 @@
-h1 {
-    font-size: 3rem;
-    text-align: center;
-    color: #943a07;
-    border-bottom: solid 2px;
-    padding: 15px;
-    margin: 30px 15% 50px;
-    box-shadow: 5px 5px 5px #ab621b;
-    text-shadow: 1px 1px #000;
-    text-wrap: wrap;
-}
-
 .form {
-    width: 30%;
+    width: 65%;
     margin: 30px auto;
     background-color: brown;
     border-radius: 20px;
     padding: 20px;
     text-align: center;
-}
-
-label:after {
-    content: "*";
-    color: red;
+    label:after {
+        content: "*";
+        color: red;
+    }
 }
 
 input {
@@ -40,4 +27,11 @@ input {
 .small {
     text-decoration: none;
     color: #000;
+}
+
+
+@media only screen and (min-width: 1300px) {
+    .form {
+        width: 30%;
+    }
 }

@@ -43,8 +43,16 @@
             <li><a href="<?=$base_uri[0] ?>/public/home">Accueil</a></li>
             <li><a href="<?=$base_uri[0] ?>/public/shop">shop</a></li>
             <li><a href="<?=$base_uri[0] ?>/public/contact">contact</a></li>
-            <li><a href="<?=$base_uri[0] ?>/public/login">connexion</a></li>
-            <li><a href="<?=$base_uri[0] ?>/public/register">créé compte</a></li>
+            
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <li><a href="<?=$base_uri[0] ?>/public/user">Mon compte</a></li>
+            <?php endif; ?>
+            
+            <?php if(!isset($_SESSION['user_id'])): ?>
+                <li><a href="<?=$base_uri[0] ?>/public/login">Connexion</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/register">Créer compte</a></li>
+            <?php endif; ?>
+            
         </ul>
     </div>
 

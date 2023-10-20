@@ -1,0 +1,79 @@
+.order {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    width: 90%;
+    margin: 20px auto;
+    box-shadow: 1px 1px 3px;
+    h3 {
+        font-size: 1rem;
+        text-align: center;
+        color: #943a07;
+        padding: 10px;
+        margin: 10px 30px 40px;
+        box-shadow: 5px 5px 10px #ab621b;
+        text-wrap: wrap;
+    }
+    p {
+        margin-left: 20px;
+    }
+
+}
+
+.profil {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    width: 90%;
+    margin: 20px auto;
+    box-shadow: 1px 1px 3px;
+    h3 {
+        font-size: 1rem;
+        text-align: center;
+        color: #943a07;
+        padding: 10px;
+        margin: 10px 30px 40px;
+        box-shadow: 5px 5px 5px #ab621b;
+        text-wrap: wrap;
+    }
+    table {
+        border: solid 1px #ccc;
+        border-collapse: collapse;
+        text-align: center;
+        width: 95%;
+        margin: 20px auto;
+    }
+    tr,
+    td,
+    th {
+        border: solid 1px #ccc;
+        padding: 5px;
+    }
+    .formUser {
+        width: 85%;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .order,
+    .profil {
+        h3 {
+            font-size: 2rem;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1600px) {
+
+    .order,
+    .profil {
+        width: 70%;
+        h3 {
+            font-size: 3rem;
+        }
+    }
+}

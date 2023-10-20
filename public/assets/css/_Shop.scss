@@ -1,96 +1,127 @@
-.mainShop {
+.paraTitle {
+    text-align: center;
+}
+
+.listBook {
+    width: 90%;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    h1 {
-        font-size: 4rem;
-        text-align: center;
-        color: #943a07;
-        border-bottom: solid 2px;
-        padding: 15px;
-        margin: 30px 15% 50px;
-        box-shadow: 5px 5px 5px #ab621b;
-        text-shadow: 1px 1px #000;
-        text-wrap: wrap;
-    }
-    .paraTitle {
-        font-size: 2em;
-        border-bottom: 3px solid brown;
-        padding: 0 60px 30px;
-    }
-    .shop {
-        width: 90%;
-        background-color: silver;
-        margin: 10px auto;
-        border-radius: 20px;
-        padding: 20px 0;
-    }
-    .cart {
+    .book {
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        margin: 30px 0;
+        border: solid;
+        border-radius: 10px;
+        background-color: #faebd7;
+        padding: 10px 0;
     }
-    .item2 {
-        border-left: solid 1px #000;
-        border-right: 1px solid #000;
-        padding: 0 15px
-    }
-    .item {
-        width: 35%;
+    h3 {
+        font-size: 1.6rem;
         text-align: center;
+        color: #b37b00;
+        border-bottom: solid 2px;
+        padding: 5px 20px;
+        margin: 30px 30px;
+        box-shadow: 5px 5px 10px #ab621b;
+        text-shadow: 1px 1px #000;
     }
-    .itemForm {
-        border: solid 1px #000;
-        width: 50%;
-        margin: 0 auto;
-        padding: 10%;
+    .bookDescrip {
+        width: 70%;
+        margin: 10px auto;
+        text-align: inherit;
+        text-align: justify;
+        padding: 10px;
+        border: solid 1px #ccc;
         border-radius: 10px;
     }
-    .item3 p {
-        margin-bottom: 0;
-    }
-    .imgCart {
-        border: solid 1px;
+    .basketBook {
+        display: flex;
+        width: 75%;
+        margin: 20px auto;
+        flex-direction: column;
+        border: solid 1px #ccc;
+        align-items: center;
         border-radius: 10px;
+        .itemForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p {
+                border: solid 1px;
+                padding: 5px;
+            }
+            small {
+                font-style: oblique;
+                line-height: 0;
+            }
+        }
     }
-    .separate {
-        width: 100%;
-        height: 50px;
-        background-color: brown;
-    }
+}
+
+.imgShop {
+    width: 85%;
+    margin: 20px auto;
+    display: block;
+}
+
+.sectionPaner {
+    background-color: darkgrey;
+    width: 95%;
+    margin: 20px auto;
+    border-radius: 20px;
+    text-align: center;
     h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
         text-align: center;
         color: #943a07;
         border-bottom: solid 2px;
         padding: 15px;
-        margin: 30px 15% 50px;
-        box-shadow: 5px 5px 5px #ab621b;
+        margin: 30px 20px;
+        box-shadow: 5px 5px 10px #ab621b;
         text-shadow: 1px 1px #000;
-        text-wrap: wrap;
+    }
+}
+
+.tablePaner {
+    border-collapse: collapse;
+    border: solid 1px;
+    margin: 0 auto;
+    height: 120px;
+    th,
+    tr {
+        border: solid 1px;
+        padding: 10px;
+    }
+    td {
+        border-bottom: solid 1px;
+    }
+}
+
+.btnPaner {
+    margin: 30px 0;
+}
+
+@media only screen and (min-width: 900px) {
+
+    .listBook {
+        width: 75%;
+        box-shadow: 4px 6px 13px #575555;
+        border-radius: 10px;
+        h3 {
+            padding: 8px 85px;
+        }
+        .basketBook {
+            width: 50%;
+        }
     }
     .sectionPaner {
-        background-color: darkgrey;
         width: 70%;
-        margin: 20px auto;
-        border-radius: 20px;
-        text-align: center;
+        padding: 38px;
+        box-shadow: 4px 6px 13px #575555;
     }
-    .tablePaner {
-        border-collapse: collapse;
-        border: solid 1px;
-        margin: 0 auto;
-        th {
-            padding: 4rem;
-        }
-        td {
-            border: solid 0.5px;
-            padding: 5rem;
-        }
+    .imgShop {
+        width: 60%;
     }
-    .btnPaner {
-        margin: 30px 0;
-    }
-
 }

@@ -18,17 +18,32 @@ function closeNav() {
 }
 
 ///////////////////////////////////
-/////// carousel   ////////////////
+///////   carousel   ////////////////
 ///////////////////////////////////
+function previous() {
+    const widthSlider = document.querySelector('.carousel').offsetWidth; // recuperation de la largeur du conteneur
+    document.querySelector('.sliderContent').scrollLeft -= widthSlider; // cela scroll directement à l'extremité gauche
+}
+
+function next() {
+    const widthSlider = document.querySelector('.carousel').offsetWidth;
+    document.querySelector('.sliderContent').scrollLeft += widthSlider;
+}
 
 
+/////////////////////////////////////////
+///////////  selecteur d'onglet  ///////////
+//////////////////////////////////////////
 
-
-
+function nextPage() {
+    var selecteur = document.getElementById("selecteur");
+    var selectedValue = selecteur.options[selecteur.selectedIndex].value;
+    window.location.href = selectedValue;
+}
 
 
 ////////////////////////////////////
-////////// PANIER //////////////////
+//////////   PANIER   //////////////////
 ///////////////////////////////////
 document.querySelector('.paner').addEventListener('submit', function(e) {
     e.preventDefault(); // Empêche le formulaire de se soumettre normalement

@@ -1,22 +1,49 @@
 footer {
     background-color: #000;
-    height: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    .footer {
-        display: flex;
-        width: 90%;
-        justify-content: space-around;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    img {
+        width: 30%;
+    }
+    h4 {
+        color: #fff;
+    }
+    div:nth-child(2) {
         margin: 20px 0;
     }
+
+
     a {
         color: brown;
         text-decoration: none;
+        padding: 2px;
     }
-    .mention {
-        color: #ccc;
-        margin-bottom: 10px;
+}
+
+.mention {
+    color: #ccc;
+    margin: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+    .footer {
+        display: flex;
+        flex-direction: row;
+
+        div:first-child {
+            width: 40%;
+        }
+        div:nth-child(3) {
+            align-self: end;
+            width: 40%;
+        }
     }
 }

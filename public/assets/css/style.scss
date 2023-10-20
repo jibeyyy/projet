@@ -1,7 +1,9 @@
-@import 'Header';
-@import 'Body';
-@import 'Home';
-@import 'Footer';
+@import 'Header';// fichier gui gère CSS de la tête de page
+@import 'Body';// fichier gui gère les règle css généraux
+@import 'Home';// fichier gui gère les regle CSS de la page Accueil
+@import 'Footer';// fichier gui gère les regle css lié au pied de page
 @import 'Login'; //inclu le login, la page register et la page forgot-password
-@import 'Shop';
-@import 'Contact';
+@import 'Shop';  // fichier gui gère le design de la page boutique
+@import 'Contact'; //fichier qui gère les regle CSS de la page contact ainsi qu'une parti de register et forgot-password
+@import 'User'; //fichier qui gère les regle css du compte utilisateur
+@import 'Admin'; // fichier qui gére les regle CSS de la parti administrateur

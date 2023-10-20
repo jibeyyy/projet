@@ -1,0 +1,86 @@
+.mainContact {
+    p {
+        width: 90%;
+        margin: 20px auto;
+        text-align: center;
+    }
+    .ContactForm {
+        background-image: url('../img/mainu.jpg');
+        background-size: 100% 100%;
+        margin: 20px auto;
+        text-align: center;
+        font-size: 1.3em;
+        input,
+        textarea {
+            opacity: 0.7;
+        }
+        label {
+            font-weight: bold;
+            color: #8b0000;
+        }
+    }
+}
+
+.coord {
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+        color: #943a07;
+        border-bottom: solid 2px;
+        padding: 15px;
+        margin: 30px 15% 50px;
+        box-shadow: 5px 5px 10px #ab621b;
+        text-shadow: 1px 1px #000;
+        text-wrap: wrap;
+    }
+    .iframe {
+        justify-content: center;
+        display: flex;
+        margin: 40px auto;
+    }
+    .divList {
+        border-radius: 50%;
+        background-color: grey;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        line-height: 2;
+
+        ul {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+        li i {
+            margin-right: 20px;
+        }
+        .listMap {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.mainRegister {
+    p {
+        width: 80%;
+        text-align: center;
+        margin: 20px auto;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .ContactForm {
+        width: 70%;
+    }
+    .iframe {
+        width: 80%;
+        iframe {
+            width: 100%;
+        }
+    }
+    .divList {
+        width: 45%;
+        margin: 20px auto;
+        padding: 0;
+    }
+}
