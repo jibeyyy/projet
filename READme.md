@@ -17,6 +17,7 @@ commande suivante dans le dossier CSS pour compiler les fichiers Sass en CSS :
 
  Dans l'IDE Cloud9, dans le terminal :
  
+              allez à la racine du dossier en utilisant les lignes de commande et taper :
             "watch sass style.scss style.css"
                   
 Vous pouvez trouver le code source à cette adresse : https://github.com/jibeyyy/projet
