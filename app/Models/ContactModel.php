@@ -4,7 +4,7 @@ namespace App\Models;
 use App\Utils\DataBase;
 use \PDO;
 
-class BookModel
+class ContactModel
 {
     private $id;
     private $lastName;
@@ -23,6 +23,22 @@ class BookModel
         $messages = $query->fetchAll(PDO::FETCH_CLASS,'App\Models\ContactModel');
         return $messages;
         
+    }
+    public function insertMessage(): bool
+    {
+        $pdo = DataBase::connectPDO();
+        $sql = "INSERT INTO `message`(`lastName`, `FirstName`, `email`, `msg`) VALUES (:lastName, :firstName, :email, :msg)";
+        
+        $params = [
+            'lastName' => $this->lastName,
+            'firstName' => $this->firstName,
+            'email' => $this->email,
+            'msg' => $this->msg,
+            
+        ];
+        $query = $pdo->prepare($sql);
+        $queryStatus = $query->execute($params);
+        return $queryStatus;
     }
      public function getId(): int
     {

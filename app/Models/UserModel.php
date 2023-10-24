@@ -54,7 +54,7 @@ class UserModel {
         return $isMail > 0;
     }
 
-//methode permaettant de récupéré l'email et le mot  depasse de l'utilisateur 
+//methode permettant de récupéré l'email et le mot  depasse de l'utilisateur 
  public static function getUserByEmail($email): ?UserModel
     {
 
@@ -67,9 +67,8 @@ class UserModel {
         FROM user
         WHERE email = :email';
         $pdoStatement = $pdo->prepare($sql);
-        // on exécute la requête en donnant à PDO la valeur à utiliser pour remplacer ':email'
         $pdoStatement->execute([':email' => $email]);
-        // on récupère le résultat sous la forme d'un objet de la classe AppUser
+    
         $result = $pdoStatement->fetchObject('App\Models\UserModel');
 
         // si l'email ne correspond pas, ça va renvoyer false et on va rentrer dans la condition (car différent de true)        

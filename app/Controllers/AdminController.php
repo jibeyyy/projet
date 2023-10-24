@@ -12,7 +12,7 @@ class AdminController extends MainController { // connexion à l'administrateur 
         $this->viewType = 'admin';
         $this->autorizeUser(1);
        
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") { 
             if (isset($_POST["insertBook"])) {
                 $this->addBook();
             }
@@ -20,13 +20,9 @@ class AdminController extends MainController { // connexion à l'administrateur 
                 $this->removeBook();
             }
             if (isset($_POST['updateBook'])) {
-              
                 $this->updateBook();
             }
         }
-
-        
-       
         if (isset($this->subPage)) {
             
             $this->view = $this->subPage;

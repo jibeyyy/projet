@@ -10,14 +10,11 @@ class UserController extends MainController {
                 $this->autorizeUser(3);  
         }
         if (isset($_POST["logout"])) {
-            $this->logout();
-        } else {
-            if (isset($_POST["registerForm"])) {
-                $this->register();
-            } elseif (isset($_POST["loginForm"])) {
-                $this->login();
-            }
-        }
+        } 
+        else {
+            $this->register();
+    $this->login();
+    }
     $this->render();
 
 }

@@ -6,7 +6,7 @@ session_start();
 
 const AVAILABLE_ROUTES = [
     'home' => ['controller' => 'MainController', 'action' => 'render'],
-    'contact' => ['controller' => 'ContactController','action'=> 'renderContact'],
+    'contact' => ['controller' => 'MainController','action'=> 'render'],
     'login' => ['controller' => 'UserController', 'action' => 'renderUser'],
     'logout' => ['controller' => 'UserController', 'action' => 'renderUser'],
     'register' => ['controller' => 'UserController', 'action' => 'renderUser'],

@@ -15,8 +15,6 @@ class BookController extends MainController {
     }
 
     public static function addToCart($name, $price, $quantity) {
-        // Vérifiez si les données sont valides (par exemple, si le nom est non vide, le prix est un nombre positif, etc.)
-        // Effectuez également des validations supplémentaires selon vos besoins.
         
         $cartItem = [
             'name' => $name,
@@ -43,24 +41,24 @@ class BookController extends MainController {
                 // Appel à la fonction d'ajout au panier
                 $this->addToCart($name, $price, $quantity);
 
-                // Mettez à jour le stock dans la base de données
+                // Met à jour le stock dans la base de données
                 $this->updateStock($name, $quantity);
             } 
         }
     }
 
     public function updateStock($name, $quantity) {
-        // Récupérez le modèle de base de données pour les livres
+        // Récupére le modèle de base de données pour les livres
         $bookModel = new BookModel();
         
-        // Récupérez le stock actuel
+        // Récupére le stock actuel
         $currentStock = $bookModel->getStockByName($name);
 
         if ($currentStock !== null && $currentStock >= $quantity) {
-            // Calculez le nouveau stock
+            // Calcule le nouveau stock
             $newStock = $currentStock - $quantity;
 
-            // Mettez à jour le stock dans la base de données
+            // Met à jour le stock dans la base de données
             $bookModel->updateStockByName($name, $newStock);
         }
         else {
