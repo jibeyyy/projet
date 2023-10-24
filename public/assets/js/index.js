@@ -1,11 +1,11 @@
 /////////////////////////////////
 ////////////  menu Burger //////
 ////////////////////////////////
-var sidenav = document.getElementById("mySidenav"); // recuperation des id html
-var openBtn = document.getElementById("openBtn");
-var closeBtn = document.getElementById("closeBtn");
+let sidenav = document.getElementById("mySidenav"); // recuperation des id html
+let openBtn = document.getElementById("openBtn");
+let closeBtn = document.getElementById("closeBtn");
 
-openBtn.onclick = openNav; // implementation des fonction
+openBtn.onclick = openNav; // implementation des fonctions au variable
 closeBtn.onclick = closeNav;
 
 
@@ -36,25 +36,9 @@ function next() {
 //////////////////////////////////////////
 
 function nextPage() {
-    var selecteur = document.getElementById("selecteur");
-    var selectedValue = selecteur.options[selecteur.selectedIndex].value;
-    window.location.href = selectedValue;
+    let selecteur = document.getElementById("selecteur"); // recuperation de l'id html
+    let selectedValue = selecteur.options[selecteur.selectedIndex].value; //on implemente les options des balise html à la variable selecteur et renvoie l'index de l'option actuellement
+    window.location.href = selectedValue; // redirige l'utilisateur vers une nouvelle page en utilisant la valeur stockée dans la variable selectedValue comme URL de destination.
 }
 
 
-////////////////////////////////////
-//////////   PANIER   //////////////////
-///////////////////////////////////
-document.querySelector('.paner').addEventListener('submit', function(e) {
-    e.preventDefault(); // Empêche le formulaire de se soumettre normalement
-
-    // Récupère les valeurs du formulaire
-    var selectedLivre = document.querySelector('#name').value;
-    var selectedQuantity = document.querySelector('#quantity').value;
-    var selectedPrice = document.querySelector('#price').value;
-
-    // Met à jour les éléments dans le tableau
-    document.querySelector('#name').textContent = selectedLivre;
-    document.querySelector('#quantity').textContent = selectedQuantity;
-    document.querySelector('#price').textContent = selectedPrice;
-});

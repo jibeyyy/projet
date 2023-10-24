@@ -1,17 +1,23 @@
-<form method="POST">
-    <label for="name">Ajout d'un titre</label><br>
-    <input type="text" name="name" id="name"/><br>
+<section class="mainModify">
+ <h1>Modifier un Livre</h1>
+ <p> Cette page consiste a modifier le livre</p>
+</section>
+<section class="sectionModify">
+    <form class="formModify" method="POST" >
+         <label for="name">Modifier le titre</label><br>
+         <input type="text" name="name" id="name"/><br>
     
-     <label for="img">ajout d'une image ou photo</label><br>
-        <input type="file" id="img" name="img" accept="image/png, image/jpeg" /><br>
+         <label for="img">Remplacer une image ou photo</label><br>
+         <input type="file" id="img" name="img" accept="image/png, image/jpeg" /><br>
     
-      <label for="resume">la description</label><br>
-      <textarea id="resume" maxlength="300" name="resume" cols="30 " rows="8 " placeholder="déscription ici "></textarea><br>
+         <label for="resume">Remplacer la description</label><br>
+         <textarea id="resume" maxlength="300" name="resume" cols="30 " rows="8 " placeholder="déscription ici "></textarea><br>
           
-       <label for="price">Ajout d'un prix</label><br>
-    <input type="number" name="price" id="price"/><br>
-           <label for="stock">Ajout d'un stock</label><br>
-    <input type="number" name="stock" id="stock"/><br>
-        
-       <input type="submit" name="updateBook" value="modifié l'article"/> 
-</form>
+         <label for="price">Modifier le prix</label><br>
+         <input type="number" name="price" id="price"/><br>
+           <label for="stock">Modifier le stock</label><br>
+         <input type="number" name="stock" id="stock"/><br>
+          
+         <input type="submit" name="updateBook" value="modifié l'article"/> 
+     </form>
+</section>

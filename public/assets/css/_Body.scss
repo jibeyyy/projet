@@ -1,10 +1,19 @@
 body {
     box-sizing: border-box;
-    background-color: #F6D3BC;
+    background: linear-gradient(0deg, rgba(204, 204, 204, 0.6292892156862745) 6%, rgba(0, 164, 252, 0.5508578431372548) 92%);
     font-family: cursive, Arial;
     margin: 0;
     padding: 0;
     font-size: 15px;
+    -webkit-font-family: cursive, Arial;
+    -webkit-font-size: 15px;
+    background: -webkit-linear-gradient(0deg, rgba(204, 204, 204, 0.6292892156862745) 6%, rgba(0, 164, 252, 0.5508578431372548) 92%);
+    -moz-font-family: cursive, Arial;
+    -moz-font-size: 15px;
+    background: -moz-linear-gradient(0deg, rgba(204, 204, 204, 0.6292892156862745) 6%, rgba(0, 164, 252, 0.5508578431372548) 92%);
+    -o-font-family: cursive, Arial;
+    -o-font-size: 15px;
+    background: -o-linear-gradient(0deg, rgba(204, 204, 204, 0.6292892156862745) 6%, rgba(0, 164, 252, 0.5508578431372548) 92%);
 }
 
 .alert {
@@ -30,19 +39,35 @@ body {
         padding-bottom: 10px;
         box-shadow: 5px 5px 10px #ab621b;
         text-shadow: 1px 1px #000;
+        border-radius: 5px;
+        -webkit-margin: 10px 8% 20px;
+        -webkit-box-shadow: 5px 5px 10px #ab621b;
+        -webkit-text-shadow: 1px 1px #000;
+        -moz-margin: 10px 8% 20px;
+        -moz-box-shadow: 5px 5px 10px #ab621b;
+        -moz-text-shadow: 1px 1px #000;
+        -o-margin: 10px 8% 20px;
+        -o-box-shadow: 5px 5px 10px #ab621b;
+        -o-text-shadow: 1px 1px #000;
     }
     p {
         margin: 20px;
+        -o-margin: 20px;
     }
 }
 
 .select {
-
+    width: 90%;
     margin: 20px auto;
     display: flex;
     justify-content: center;
     -webkit-width: 90%;
     -webkit-margin: 20px auto;
+    -moz-margin: 20px auto;
+    -moz-justify-content: center;
+    display: -o-flex;
+    -o-justify-content: center;
+
     select {
         background-color: lightgreen;
         padding: 3px;
@@ -58,6 +83,9 @@ input {
     background-color: #ffe4c4;
     font-weight: bold;
     font-family: cursive;
+    -moz-font-family: cursive;
+    -o-font-weight: bold;
+    -o-font-family: cursive;
 }
 
 h1 {
@@ -69,7 +97,20 @@ h1 {
     margin: 60px 15% 50px;
     box-shadow: 5px 5px 10px #ab621b;
     text-shadow: 1px 1px #000;
-    text-wrap: wrap;
+    border-radius: 5px;
+    -webkit-font-weight: bold;
+    -webkit-margin: 60px 15% 50px;
+    -webkit-box-shadow: 5px 5px 10px #ab621b;
+    -webkit-text-shadow: 1px 1px #000;
+    -moz-font-weight: bold;
+    -moz-margin: 60px 15% 50px;
+    -moz-box-shadow: 5px 5px 10px #ab621b;
+    -moz-text-shadow: 1px 1px #000;
+    -o-font-weight: bold;
+    -o-margin: 60px 15% 50px;
+    -o-box-shadow: 5px 5px 10px #ab621b;
+    -o-text-shadow: 1px 1px #000;
+
 }
 
 @media only screen and (min-width: 600px) {
@@ -90,7 +131,14 @@ h1 {
         margin: 30px 15% 50px;
         box-shadow: 5px 5px 16px #ab621b;
         text-shadow: 1px 1px #000;
-        text-wrap: wrap;
+        -webkit-font-size: 3rem;
+        -webkit-margin: 30px 15% 50px;
+        -moz-font-size: 3rem;
+        -moz-margin: 30px 15% 50px;
+        -moz-box-shadow: 5px 5px 16px #ab621b;
+        -o-font-size: 3rem;
+        -o-margin: 30px 15% 50px;
+        -o-box-shadow: 5px 5px 16px #ab621b;
     }
 
     .succe {
@@ -104,15 +152,24 @@ h1 {
 @media only screen and (min-width: 1300px) {
     body {
         font-size: 20px;
+        -webkit-font-size: 20px;
+        -moz-font-size: 20px;
+        -o-font-size: 20px;
     }
     .titleSelect p {
         width: 80%;
         margin: 20px auto;
+        -webkit-font-size: 20px;
+        -moz-font-size: 20px;
+        -o-font-size: 20px;
     }
 }
 
 @media only screen and (min-width: 1600px) {
     body {
         font-size: 28px;
+        -webkit-font-size: 28px;
+        -moz-font-size: 28px;
+        -o-font-size: 28px;
     }
 }

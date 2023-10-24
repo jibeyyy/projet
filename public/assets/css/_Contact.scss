@@ -3,6 +3,9 @@
         width: 90%;
         margin: 20px auto;
         text-align: center;
+        -moz-margin: 20px auto;
+        -o-margin: 20px auto;
+
     }
     .ContactForm {
         background-image: url('../img/mainu.jpg');
@@ -10,9 +13,21 @@
         margin: 20px auto;
         text-align: center;
         font-size: 1.3em;
+        -webkit-font-size: 1.3em;
+        -webkit-background-size: 100% 100%;
+
+        -moz-font-size: 1.3em;
+        -moz-background-size: 100% 100%;
+
+        -o-font-size: 1.3em;
+        -o-margin: 20px auto;
+        -o-background-size: 100% 100%;
         input,
         textarea {
             opacity: 0.7;
+            -webkit-opacity: 0.7;
+            -moz-opacity: 0.7;
+            -o-opacity: 0.7;
         }
         label {
             font-weight: bold;
@@ -31,12 +46,24 @@
         margin: 30px 15% 50px;
         box-shadow: 5px 5px 10px #ab621b;
         text-shadow: 1px 1px #000;
-        text-wrap: wrap;
+        -webkit-font-size: 2rem;
+        -webkit-margin: 30px 15% 50px;
+        -webkit-box-shadow: 5px 5px 10px #ab621b;
+        -moz-font-size: 2rem;
+        -moz-margin: 30px 15% 50px;
+        -moz-box-shadow: 5px 5px 10px #ab621b;
+        -moz-text-shadow: 1px 1px #000;
+        -o-font-size: 2rem;
+        -o-text-shadow: 1px 1px #000;
+        -o-margin: 30px 15% 50px;
+        -o-box-shadow: 5px 5px 10px #ab621b;
+
     }
     .iframe {
         justify-content: center;
         display: flex;
         margin: 40px auto;
+        -o-justify-content: center;
     }
     .divList {
         border-radius: 50%;
@@ -45,13 +72,14 @@
         display: flex;
         justify-content: center;
         line-height: 2;
-
+        -o-justify-content: center;
         ul {
             list-style: none;
             margin-bottom: 50px;
         }
         li i {
             margin-right: 20px;
+            -o-margin-right: 20px;
         }
         .listMap {
             display: flex;
@@ -65,6 +93,9 @@
         width: 80%;
         text-align: center;
         margin: 20px auto;
+        -webkit-margin: 20px auto;
+        -moz-margin: 20px auto;
+        -o-margin: 20px auto;
     }
 }
 
@@ -76,11 +107,15 @@
         width: 80%;
         iframe {
             width: 100%;
+
         }
     }
     .divList {
         width: 45%;
         margin: 20px auto;
         padding: 0;
+        -webkit-margin: 20px auto;
+        -moz-margin: 20px auto;
+        -o-margin: 20px auto;
     }
 }

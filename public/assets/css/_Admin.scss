@@ -1,3 +1,4 @@
+// Main de l'administrateur //
 .mainAdmin {
     h2 {
         font-size: 1.6rem;
@@ -6,25 +7,43 @@
         border-bottom: solid 2px;
         padding: 15px;
         margin: 60px 15% 50px;
-        box-shadow: 5px 5px 5px #ab621b;
+        box-shadow: 5px 5px 10px #ab621b;
         text-shadow: 1px 1px #000;
         text-wrap: wrap;
+        border-radius: 5px;
+        -webkit-font-size: 1.6rem;
+        -webkit-box-shadow: 5px 5px 10px #ab621b;
+        -moz-font-size: 1.6rem;
+        -moz-margin: 60px 15% 50px;
+        -moz-box-shadow: 5px 5px 10px #ab621b;
+        -o-font-size: 1.6rem;
+        -o-margin: 60px 15% 50px;
+        -o-box-shadow: 5px 5px 10px #ab621b;
     }
     h1 {
         font-size: 1.8rem;
+        -webkit-font-size: 1.8rem;
+        -moz-font-size: 1.8rem;
+        -o-font-size: 1.8rem;
+
     }
 }
 
+// barre de navigation Administrateur du header //
 .navAdmin {
     width: 100%;
     height: 75px;
     padding: 5px 0;
     margin: 20px auto;
+    -moz-margin: 20px auto;
+    -o-margin: 20px auto;
     ul {
         display: flex;
+        justify-content: center;
         list-style: none;
         padding: 0;
-
+        display: -o-flex;
+        -o-justify-content: center;
     }
     a {
         padding: 10px 20px;
@@ -36,9 +55,11 @@
         text-shadow: 1px 1px red;
         background: radial-gradient(circle, rgba(230, 218, 22, 0.8729866947) 54%, rgba(252, 129, 1, 0.7917542017) 94%);
         margin: 20px 5px;
+
     }
 }
 
+// tableau d'affichage des livre issus de la BDD //
 .adminTable {
     table {
         border-collapse: collapse;
@@ -47,6 +68,13 @@
         width: 95%;
         margin: 0 auto;
         overflow-x: auto;
+        -webkit-justify-content: center;
+        -webkit-border-collapse: collapse;
+        -webkit-border-collapse: collapse;
+        -moz-justify-content: center;
+        -o-justify-content: center;
+        -o-border-collapse: collapse;
+
         th,
         td,
         tr {
@@ -56,14 +84,68 @@
     }
 }
 
+/* section Création livre */
+
+.sectionCreate {
+    .divCreate {
+        background-color: #fff6eb8f;
+        padding: 10px;
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px;
+        text-align: center;
+        .formCreate {
+            label {
+                color: #8b0000;
+                font-weight: bold;
+                cursor: grab;
+
+            }
+            .inputForm {
+                background-color: inherit;
+            }
+            div {
+                padding: 5px;
+                background-color: burlywood;
+                width: 96%;
+                margin: 20px auto;
+                border-radius: 10px;
+
+            }
+        }
+    }
+}
+
+
+////////////////////////*   page UPDATE    *///////////////////////////////
+.mainModify {
+    p {
+        display: block;
+        width: 80%;
+        margin: 20px auto;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+/* /////////////////   FOOTER de la parti administrateur /////////////////////*/
+
 .adminFoot {
     background-color: #ccc;
     padding: 15px;
-    margin: 40px 0 10px;
+    margin: 40px 0 0;
     display: flex;
     height: 100px;
     justify-content: space-around;
     width: 100%;
+    -webkit-margin: 40px 0 0;
+    -webkit-justify-content: space-around;
+    -moz-margin: 40px 0 0;
+    display: -o-flex;
+    -o-justify-content: space-around;
+    -o-margin: 40px 0 0;
+
     a {
         padding: 10px 20px;
         text-decoration: none;
@@ -82,18 +164,33 @@
     .navAdmin {
         a {
             font-size: 28px;
+            -webkit-font-size: 28px;
+            -moz-font-size: 28px;
+            -o-font-size: 28px;
         }
         ul {
             justify-content: space-evenly;
+            -webkit-justify-content: space-evenly;
+            -moz-justify-content: space-evenly;
+            -o-justify-content: space-evenly;
         }
+    }
+    .formCreate {
+        display: flex;
+        flex-wrap: wrap;
     }
     .adminFoot {
         flex-direction: row;
         justify-content: space-evenly;
+        -moz-flex-direction: row;
+        -moz-justify-content: space-evenly;
+        -o-flex-direction: row;
+        -o-justify-content: space-evenly;
+
     }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 930px) {
     .adminTable {
         margin: 40px auto;
         padding: 40px 0;
@@ -101,14 +198,27 @@
             width: 60%;
         }
     }
+    .divCreate {
+        width: 90%;
+    }
+}
 
+@media only screen and (min-width: 1120px) {
+    .sectionCreate .divCreate .formCreate div {
+        padding: 5px;
+        background-color: #deb887;
+        width: 30%;
+    }
+    .inputForm {
+        width: 80%;
+        margin: 10px auto;
+    }
 }
 
 @media only screen and (min-width: 1600px) {
     .adminTable {
         table {
             width: 42%;
-
         }
     }
 }

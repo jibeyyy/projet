@@ -16,6 +16,7 @@ const AVAILABLE_ROUTES = [
     'shop' => ['controller'=> 'BookController', 'action' =>'renderBook'],
     'user' => ['controller'=> 'UserController', 'action' => 'renderUser'],
     '403'=> ['controller'=> 'MainController', 'action' => 'render'],
+    'update'=> ['controller' => 'AdminController', 'action' => 'renderAdmin'],
     
 ];
 

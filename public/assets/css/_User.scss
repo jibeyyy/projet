@@ -17,7 +17,6 @@
     p {
         margin-left: 20px;
     }
-
 }
 
 .profil {
@@ -35,6 +34,7 @@
         margin: 10px 30px 40px;
         box-shadow: 5px 5px 5px #ab621b;
         text-wrap: wrap;
+
     }
     table {
         border: solid 1px #ccc;
@@ -48,12 +48,15 @@
     th {
         border: solid 1px #ccc;
         padding: 5px;
-    }
-    .formUser {
-        width: 85%;
-        margin: 20px auto;
-        display: flex;
-        justify-content: space-evenly;
+
+        .formUser {
+            width: 85%;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-evenly;
+            -moz-justify-content: space-evenly;
+            -o-justify-content: space-evenly;
+        }
     }
 }
 

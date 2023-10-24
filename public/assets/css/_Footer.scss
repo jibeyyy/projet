@@ -3,6 +3,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    display: -o-flex;
+    -o-flex-direction: column;
 }
 
 .footer {
@@ -10,6 +12,8 @@ footer {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    display: -o-flex;
+    -o-flex-direction: column;
     img {
         width: 30%;
     }
@@ -18,9 +22,9 @@ footer {
     }
     div:nth-child(2) {
         margin: 20px 0;
+        -moz-margin: 20px 0;
+        -o-margin: 20px 0;
     }
-
-
     a {
         color: brown;
         text-decoration: none;
@@ -37,7 +41,8 @@ footer {
     .footer {
         display: flex;
         flex-direction: row;
-
+        display: -o-flex;
+        -o-flex-direction: row;
         div:first-child {
             width: 40%;
         }

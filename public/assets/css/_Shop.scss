@@ -1,5 +1,6 @@
 .paraTitle {
     text-align: center;
+
 }
 
 .listBook {
@@ -7,6 +8,10 @@
     margin: 20px auto;
     display: flex;
     flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -o-flex-direction: column;
+
     .book {
         display: flex;
         flex-direction: column;
@@ -16,6 +21,15 @@
         border-radius: 10px;
         background-color: #faebd7;
         padding: 10px 0;
+        -webkit-flex-direction: column;
+        -webkit-align-items: center;
+        -webkit-justify-content: center;
+        -moz-flex-direction: column;
+        -moz-align-items: center;
+        -moz-justify-content: center;
+        -o-flex-direction: column;
+        -o-align-items: center;
+        -o-justify-content: center;
     }
     h3 {
         font-size: 1.6rem;
@@ -44,10 +58,19 @@
         border: solid 1px #ccc;
         align-items: center;
         border-radius: 10px;
+        -webkit-margin: 20px auto;
+        -moz-margin: 20px auto;
+        -moz-flex-direction: column;
+        -moz-align-items: center;
+        -o-margin: 20px auto;
+        -o-flex-direction: column;
+        -o-align-items: center;
         .itemForm {
             display: flex;
             flex-direction: column;
             align-items: center;
+            -moz-flex-direction: column;
+            -o-flex-direction: column;
             p {
                 border: solid 1px;
                 padding: 5px;
@@ -55,6 +78,7 @@
             small {
                 font-style: oblique;
                 line-height: 0;
+
             }
         }
     }
@@ -72,6 +96,8 @@
     margin: 20px auto;
     border-radius: 20px;
     text-align: center;
+    -moz-background-color: darkgrey;
+    -o-background-color: darkgrey;
     h2 {
         font-size: 1.6rem;
         text-align: center;
@@ -81,6 +107,7 @@
         margin: 30px 20px;
         box-shadow: 5px 5px 10px #ab621b;
         text-shadow: 1px 1px #000;
+
     }
 }
 
@@ -93,9 +120,11 @@
     tr {
         border: solid 1px;
         padding: 10px;
+
     }
     td {
         border-bottom: solid 1px;
+
     }
 }
 
@@ -120,8 +149,12 @@
         width: 70%;
         padding: 38px;
         box-shadow: 4px 6px 13px #575555;
+        -webkit-box-shadow: 4px 6px 13px #575555;
+        -moz-box-shadow: 4px 6px 13px #575555;
+        -o-box-shadow: 4px 6px 13px #575555;
     }
     .imgShop {
         width: 60%;
+        -o-width: 60%;
     }
 }

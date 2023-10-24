@@ -8,10 +8,22 @@
     label:after {
         content: "*";
         color: red;
+        -webkit-content: "*";
+        -webkit-color: red;
+
+        -moz-content: "*";
+        -moz-color: red;
+
+        -o-content: "*";
+        -o-color: red;
+
     }
 }
 
 input {
+    margin: 10px 0;
+    -webkit-margin: 10px 0;
+    -moz-margin: 10px 0;
     margin: 10px 0;
 }
 
@@ -22,6 +34,12 @@ input {
     padding: 10px;
     align-items: center;
     font-size: medium;
+    -webkit-font-size: medium;
+    -moz-flex-direction: column;
+    -moz-justify-content: center;
+    -o-flex-direction: column;
+    -o-justify-content: center;
+    -o-font-size: medium;
 }
 
 .small {
@@ -33,5 +51,8 @@ input {
 @media only screen and (min-width: 1300px) {
     .form {
         width: 30%;
+        -webkit-width: 30%;
+        -moz-width: 30%;
+        -o-width: 30%;
     }
 }

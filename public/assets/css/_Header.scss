@@ -2,14 +2,17 @@
 * par Jean-Baptiste A.
 */
 
+/* les commentaires sont en français pour une meilleur visibilité pour la soutenance */
+
 /* menu burger pour version mobile */
 
 .header {
   /* tête de page cacher en version mobile*/
   display: none;
+
 }
 
-.burger-icon {
+.burgerIcon {
   display: block;
   position: absolute;
   top: 20px;
@@ -30,15 +33,28 @@
   background-color: #e8e8e8;
   padding-top: 60px;
   transition: left 0.5s ease;
+  -webkit-z-index: 1;
+  -webkit-transition: left 0.5s ease;
+  -moz-z-index: 1;
+  -moz-transition: left 0.5s ease;
+  -o-z-index: 1;
+  -o-transition: left 0.5s ease;
+
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
   display: block;
   transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -webkit-font-size: 25px;
+  -moz-transition: 0.3s;
+  -moz-font-size: 25px;
+  -o-transition: 0.3s;
+  -o-font-size: 25px;
 }
 
 .sidenav a:hover {
@@ -60,20 +76,41 @@
   top: 0;
   right: 25px;
   font-size: 36px;
+  -webkit-right: 25px;
+  -webkit-font-size: 36px;
+  -moz-right: 25px;
+  -moz-font-size: 36px;
+  -o-right: 25px;
+  -o-font-size: 36px;
 }
 
-.burger-icon span {
+.burgerIcon span {
   visibility: visible;
   display: block;
   width: 35px;
   height: 5px;
   background-color: black;
   margin: 6px 0;
+  -webkit-visibility: visible;
+  -webkit-width: 35px;
+  -webkit-height: 5px;
+  -webkit-margin: 6px 0;
+  -moz-visibility: visible;
+  -moz-width: 35px;
+  -moz-height: 5px;
+  -moz-margin: 6px 0;
+  -o-visibility: visible;
+  -o-width: 35px;
+  -o-height: 5px;
+  -o-margin: 6px 0;
+
 }
 
 a:hover {
   background-color: #fff;
   color: #000000;
+  -o-background-color: #fff;
+  -o-color: #000000;
 
 }
 
@@ -87,7 +124,14 @@ h1 {
   margin: 70px 5px 13px;
   box-shadow: 5px 5px 16px #fff7ef;
   text-shadow: 1px 1px #e3d4d4;
-  text-wrap: wrap;
+  -webkit-margin: 70px 5px 13px;
+  -webkit-box-shadow: 5px 5px 16px #fff7ef;
+  -moz-margin: 70px 5px 13px;
+  -moz-box-shadow: 5px 5px 16px #fff7ef;
+  -moz-text-shadow: 1px 1px #e3d4d4;
+  -o-margin: 70px 5px 13px;
+  -o-box-shadow: 5px 5px 16px #fff7ef;
+  -o-text-shadow: 1px 1px #e3d4d4;
 }
 
 
@@ -104,6 +148,12 @@ h1 {
     padding: 20px;
     border-radius: 0 0 15px 15px;
     background: linear-gradient(180deg, rgba(233, 233, 233, 1) 27%, rgba(208, 100, 2, 1) 100%);
+    -webkit-width: 90%;
+    -moz-width: 90%;
+    -moz-margin: 0 auto 10px;
+    -o-width: 90%;
+    background: -o-linear-gradient(180deg, rgba(233, 233, 233, 1) 27%, rgba(208, 100, 2, 1) 100%);
+    -o-margin: 0 auto 10px;
     img {
       width: 100px;
     }
@@ -112,10 +162,23 @@ h1 {
     width: 100%;
     height: 75px;
     padding: 10px;
+    -webkit-height: 75px;
+    -webkit-padding: 10px;
+
+    -moz-height: 75px;
+    -moz-padding: 10px;
+
+    -o-height: 75px;
+    -o-padding: 10px;
     ul {
       height: 40px;
       display: flex;
       justify-content: space-around;
+      -webkit-height: 40px;
+      -moz-height: 40px;
+      -moz-justify-content: space-around;
+      -o-height: 40px;
+      -o-justify-content: space-around;
     }
     li {
       list-style: none;
@@ -127,13 +190,23 @@ h1 {
         background: rgb(252, 129, 1);
         border-radius: 50%;
         box-shadow: 3px 1px 1px brown;
-        text-shadow: 1px 1px red; //        
+        text-shadow: 1px 1px red;
         background: rgb(230, 218, 22);
         background: radial-gradient(circle, rgba(230, 218, 22, 0.8729866946778712) 54%, rgba(252, 129, 1, 0.7917542016806722) 94%);
+
+        -webkit-box-shadow: 3px 1px 1px brown;
+        -webkit-text-shadow: 1px 1px red;
+
+        -moz-box-shadow: 3px 1px 1px brown;
+        -moz-text-shadow: 1px 1px red;
+
+        -o-box-shadow: 3px 1px 1px brown;
+        -o-text-shadow: 1px 1px red;
+        background: -o-radial-gradient(circle, rgba(230, 218, 22, 0.8729866946778712) 54%, rgba(252, 129, 1, 0.7917542016806722) 94%);
       }
     }
   }
-  .burger-icon {
+  .burgerIcon {
     display: none;
     /* menu burger caché */
   }

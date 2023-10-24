@@ -1,9 +1,9 @@
 
 <main class="mainAdmin">
- 
-        <h1>Bienvenue sur ton site Mathieu </h1>
-
-        <h2>Gérer la Boutique</h2>
+    <section>
+         <h1>Bienvenue sur ton site Mathieu</h1>
+         <h2>Gérer la Boutique</h2>
+   
        <div class="adminTable">
             <table class⁼"presentTableAdmin">
 
@@ -27,7 +27,7 @@
                             <input type="submit" name="deleteBook" value="Supprimer">
                         </form>
                     </td>
-                    <td><a href="<?= $base_uri[0] ?>/public/admin/update">Mettre à jour</a></td>
+                    <td><a href="<?= $base_uri[0] ?>/public/update">Mettre à jour</a></td>
                 </tr>
                 </tbody>
             <?php endforeach; ?>
@@ -35,4 +35,32 @@
             </div>
        </tbody>
       </table>
-    </main>
+       </section>
+      <section class="sectionCreate">
+            <h2>Ajouter un livre</h2>
+               <div class="divCreate">
+                  <form class="formCreate" method="POST">
+                      <div>
+                          <label for="name">Ajout d'un titre</label><br>
+                          <input type="text" name="name" id="name"/><br>
+                     
+                           <label for="img">ajout d'une image ou photo</label><br>
+                           <input class="inputForm" type="file" id="img" name="img" accept="image/png, image/jpeg" /><br>
+                      </div>
+                      <div>                
+                           <label for="resume">la description</label><br>
+                           <textarea id="resume" maxlength="300" name="resume" cols="30 " rows="8 " placeholder="déscription ici "></textarea><br>
+                     </div>
+                     <div>
+                            <label for="price">Ajout d'un prix</label><br>
+                                                <input type="number" name="price" id="price"/><br>
+                            <label for="stock">Ajout d'un stock</label><br>
+                            <input type="number" name="stock" id="stock"/><br>
+                    </div>
+                    <div>
+                            <input type="submit" name="insertBook" value="créé article"> 
+                    </div>
+                 </form>
+             </div>
+    </section>
+</main>

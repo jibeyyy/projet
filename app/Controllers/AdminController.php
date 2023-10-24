@@ -9,7 +9,6 @@ class AdminController extends MainController { // connexion à l'administrateur 
     
     public function renderAdmin(): void
     {
-        
         $this->viewType = 'admin';
         $this->autorizeUser(1);
        
