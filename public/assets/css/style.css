@@ -225,6 +225,11 @@ body {
   background-color: #43FC2A;
 }
 
+a:active {
+  background-color: #00ff35;
+  cursor: wait;
+}
+
 .titleSelect h3 {
   text-align: center;
   color: #943a07;
@@ -1150,12 +1155,35 @@ input {
   font-weight: bold;
   text-align: center;
 }
+.mainModify .sectionModify .divModify {
+  background-color: rgba(255, 246, 235, 0.5607843137);
+  padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px;
+  text-align: center;
+}
+.mainModify .sectionModify .divModify .formModify label {
+  color: #8b0000;
+  font-weight: bold;
+  cursor: grab;
+}
+.mainModify .sectionModify .divModify .formModify .inputForm {
+  background-color: inherit;
+}
+.mainModify .sectionModify .divModify .formModify div {
+  padding: 5px;
+  background-color: burlywood;
+  width: 96%;
+  margin: 20px auto;
+  border-radius: 10px;
+}
 
 /* /////////////////   FOOTER de la parti administrateur /////////////////////*/
 .adminFoot {
   background-color: #ccc;
   padding: 15px;
-  margin: 40px 0 0;
   display: flex;
   height: 100px;
   justify-content: space-around;

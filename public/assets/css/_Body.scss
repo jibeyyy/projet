@@ -28,6 +28,11 @@ body {
     background-color: #43FC2A;
 }
 
+a:active {
+    background-color: #00ff35;
+    cursor: wait;
+}
+
 //// selecteur de pages ////
 .titleSelect {
     h3 {

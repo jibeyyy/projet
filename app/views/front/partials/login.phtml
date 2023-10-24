@@ -1,16 +1,16 @@
  <main>
         <h1> Bienvenue sur la page de connexion</h1>
 
-        <form class="form" action="" method="POST">
+        <form class="form" method="POST">
             <fieldset>
                 <legend>Connexion a votre compte</legend>
-                <label for="email">Votre identifiant :</label></br>
-                <input type="email" id="email" name="email" aria-describedby="emailHelp" required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$" placeholder="Votre @email" required /></br>
+                <label for="email">Votre identifiant :</label><br>
+                <input type="email" id="email" name="email" aria-label="Adresse email" required pattern="^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]{2,}$" placeholder="Votre adresse email"><br>
 
-                <label for="password">Votre mot de passe : </label></br>
-                <input type="password" name="password" id="password" placeholder="Votre Mot de passe" required/></br>
+                <label for="password">Votre mot de passe : </label><br>
+                <input type="password" name="password" id="password" placeholder="Votre Mot de passe" required><br>
 
-                <input class="btnInput" type="submit" name="loginForm" class="btnLogin" value="Login">
+                <input class="btnInput" type="submit" name="loginForm" value="Login">
             </fieldset>
         </form>
         <hr>
