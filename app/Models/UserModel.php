@@ -37,7 +37,8 @@ class UserModel {
         // On retourne le statut
         return $queryStatus;
     }
-    public function checkEmail(): bool
+    
+     public function checkEmail(): bool
     {
         // connexion pdo
         $pdo = DataBase::connectPDO();
