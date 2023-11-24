@@ -11,7 +11,6 @@ class BookModel
     private $img;
     private $resume;
     private $price;
-    private $stock;
     private $user_id;
 
 
@@ -47,14 +46,13 @@ class BookModel
     public function insertBook(): bool
     {
         $pdo = DataBase::connectPDO();
-        $sql = "INSERT INTO `Book`(`img`, `name`, `resume`, `price`, `stock`) VALUES (:img, :name, :resume, :price, :stock)";
+        $sql = "INSERT INTO `Book`(`img`, `name`, `resume`, `price`) VALUES (:img, :name, :resume, :price)";
         
         $params = [
             'name' => $this->name,
             'img' => $this->img,
             'resume' => $this->resume,
-            'price' => $this->price,
-            'stock' => $this->stock
+            'price' => $this->price
         ];
         $query = $pdo->prepare($sql);
         $queryStatus = $query->execute($params);
@@ -140,15 +138,6 @@ class BookModel
         $this->resume = $resume;
     }
 
-    public function getStock(): int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock)
-    {
-        $this->stock = $stock;
-    }
     public function getUserId(): int
     {
         return $this->user_id;
