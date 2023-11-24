@@ -81,6 +81,7 @@ class UserModel {
         // on renvoie le résultat
         return $result;
     }
+    
 
 
     public function getId(): int

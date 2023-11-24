@@ -2,25 +2,31 @@
     <section class="sectionModify">
              <h1>Modifier un Livre</h1>
               <p> Cette page consiste a modifier le livre</p>
-
+          <?php $book = isset($data['book']) ? $data['book'] : null; ?>
               <div class="divModify">
-                    <form class="formModify" method="POST" >
-                       <label for="name">Modifier le titre</label><br>
-                       <input type="text" name="name" id="name"/><br>
+               
+    <?php if ($book): ?>
     
-                       <label for="img">Remplacer une image ou photo</label><br>
-                       <input type="file" id="img" name="img" accept="image/png, image/jpeg"/><br>
-    
-                       <label for="resume">Remplacer la description</label><br>
-                       <textarea id="resume" maxlength="300" name="resume" cols="30 " rows="8 " placeholder="déscription ici "></textarea><br>
-          
-                       <label for="price">Modifier le prix</label><br>
-                       <input type="number" name="price" id="price"/><br>
-                       <label for="stock">Modifier le stock</label><br>
-                       <input type="number" name="stock" id="stock"/><br>
-          
-                       <input type="submit" name="updateBook" value="modifié l'article"/> 
-                    </form>
-             </div>
+        <form class="formModify" method="POST">
+            <label for="name">Modifier le titre</label><br>
+            <input type="text" name="name" id="name" value="<?php echo $book->getName(); ?>"><br>
+
+            <label for="img">Remplacer une image ou photo</label><br>
+            <input type="file" id="img" name="img" value="<?php echo $book->getImg(); ?>" accept="image/png, image/jpeg"><br>
+
+            <label for="resume">Remplacer la description</label><br>
+            <textarea id="resume" maxlength="300" name="resume" cols="30" rows="8"><?php echo $book->getResume(); ?></textarea><br>
+
+            <label for="price">Modifier le prix</label><br>
+            <input type="number" name="price" id="price" value="<?php echo $book->getPrice(); ?>"><br>
+
+
+            <input type="hidden" name="id" value="<?php echo $book->getId(); ?>">
+            <input type="submit" name="updateBook" value="Modifier l'article">
+        </form>
+    <?php else: ?>
+        <p>Le livre n'existe pas.</p>
+    <?php endif; ?>
+</div>
        </section>
 </main>

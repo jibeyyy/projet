@@ -35,7 +35,7 @@ protected function autorizeUser(int $role): void
         $currentUserRole = $_SESSION['user_role'];
         
         if ($currentUserRole != 1 && $this->view === 'admin') {
-            header('Location: ' . $redirect[0] . '/public/user');
+            header('Location: ' . $redirect[0] . '/public/admin');
            exit();
         }
 

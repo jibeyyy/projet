@@ -24,11 +24,11 @@
                     <td>
                         <form method="post">
                             <input type="hidden" value="<?= $book->getId() ?>" name="bookid"/>
-                            <input type="submit" name="deleteBook" value="Supprimer">
+                            <input type="submit" name="deleteBook" aria-label="suprimer article" value="Supprimer">
                         </form>
                     </td>
-                    <td><a href="<?= $base_uri[0] ?>/public/update">Mettre à jour</a></td>
-                </tr>
+                    <td><a href="<?= $base_uri[0]; ?>/public/update?id=<?= $book->getId(); ?>">Mettre à jour</a></td>
+                     
                 </tbody>
             <?php endforeach; ?>
             </table>
@@ -42,10 +42,10 @@
                   <form class="formCreate" method="POST">
                       <div>
                           <label for="name">Ajout d'un titre</label><br>
-                          <input type="text" name="name" id="name"/><br>
+                          <input type="text" name="name" id="name"><br>
                      
                            <label for="img">ajout d'une image ou photo</label><br>
-                           <input class="inputForm" type="file" id="img" name="img" accept="image/png, image/jpeg" /><br>
+                           <input class="inputForm" type="file" id="img" name="img" accept="image/png, image/jpeg"><br>
                       </div>
                       <div>                
                            <label for="resume">la description</label><br>
@@ -53,9 +53,7 @@
                      </div>
                      <div>
                             <label for="price">Ajout d'un prix</label><br>
-                                                <input type="number" name="price" id="price"/><br>
-                            <label for="stock">Ajout d'un stock</label><br>
-                            <input type="number" name="stock" id="stock"/><br>
+                                                <input type="number" name="price" id="price"><br>
                     </div>
                     <div>
                             <input type="submit" name="insertBook" value="créé article"> 

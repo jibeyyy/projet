@@ -6,63 +6,12 @@ use App\Models\BookModel;
 
 class BookController extends MainController {
 
-    public function renderBook() {
-        $bookModel = new BookModel();
-        $books = $bookModel->getAllBooks(); 
 
-        $this->data = $books;
+    public function renderPost(): void
+    {
+        // on alimente la propriété data avec le livre 
+        $this->data =  BookModel::getBookById($this->subPage);
+        // on construit la page
         $this->render();
-    }
-
-    public static function addToCart($name, $price, $quantity) {
-        
-        $cartItem = [
-            'name' => $name,
-            'price' => $price,
-            'quantity' => $quantity
-        ];
-
-        // Utilisation des sessions pour stocker le panier
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = [];
-        }
-
-        // Ajoutez l'élément au panier
-        $_SESSION['cart'][] = $cartItem;
-    }
-
-    public function paner() {
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["paner"])) {
-            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
-            $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
-            $quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT);
-            
-            if ($name && $price && $quantity && $price > 0 && $quantity > 0) {
-                // Appel à la fonction d'ajout au panier
-                $this->addToCart($name, $price, $quantity);
-
-                // Met à jour le stock dans la base de données
-                $this->updateStock($name, $quantity);
-            } 
-        }
-    }
-
-    public function updateStock($name, $quantity) {
-        // Récupére le modèle de base de données pour les livres
-        $bookModel = new BookModel();
-        
-        // Récupére le stock actuel
-        $currentStock = $bookModel->getStockByName($name);
-
-        if ($currentStock !== null && $currentStock >= $quantity) {
-            // Calcule le nouveau stock
-            $newStock = $currentStock - $quantity;
-
-            // Met à jour le stock dans la base de données
-            $bookModel->updateStockByName($name, $newStock);
-        }
-        else {
-            echo ' stock insufisant';
-        }
     }
 }

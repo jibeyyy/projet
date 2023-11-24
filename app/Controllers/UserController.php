@@ -60,23 +60,24 @@ class UserController extends MainController {
             }
         }
     }
-
+//methode pour ce connecter
 public function login(): void
 {
     $errors = 0;
     $user = new UserModel();
-    $user = $user->getUserByEmail($_POST['email']);
+    $user = $user->getUserByEmail(htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'));
     
     if (is_null($user)) {
         $errors = 1;
     } else {
-        if (password_verify($_POST['password'], $user->getPassword())) {
+        if (password_verify(htmlspecialchars($_POST['password'], ENT_QUOTES, 'UTF-8'), $user->getPassword())) {
             $_SESSION['user_id'] = $user->getId();
             $_SESSION['user_role'] = $user->getRole();
             echo '<div class="succe" role="alert">connexion réussie !</div>';
             
             $base_uri = explode('index.php', $_SERVER['SCRIPT_NAME']);
             
+            // on redirige en fonction du role de l'utilisateur
             if ($user->getRole() < 3) {
                 header('Location:' . $base_uri[0] . 'admin');
                  echo '<div class="succe" role="alert">connexion réussie !</div>';
@@ -91,7 +92,6 @@ public function login(): void
         }
     }
 }
-
 
  // déconexion d'un utilisateur
  public function logout(): void 

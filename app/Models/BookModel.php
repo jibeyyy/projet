@@ -12,6 +12,7 @@ class BookModel
     private $resume;
     private $price;
     private $stock;
+    private $user_id;
 
 
     public static function getAllBooks() {
@@ -25,27 +26,23 @@ class BookModel
 
     return $bookData;
 }
-    public static function getBookById(int $id)
-{
-    // Connexion PDO
-    $pdo = DataBase::connectPDO();
-    
-    $sql = 'SELECT * FROM Book WHERE id = :id';
-    $pdoStatement = $pdo->prepare($sql);
-    $pdoStatement->execute([':id' => $id]);
- 
-    $bookData = $pdoStatement->fetch(PDO::FETCH_ASSOC);
-    
-    
-    $book = new BookModel();
-    $book->setId($bookData['id']);
-    $book->setImg($boodata['img']);
-    $book->setName($bookData['name']);
-    $book->setResume($bookData['resume']);
-    $book->setPrice($bookData['price']);
-    
-    return $book;
-}
+    public static function getBookById(int $id): ?BookModel
+    {
+        
+        // connection pdo
+        $pdo = DataBase::connectPDO();
+       
+        // impératif, :id permet d'éviter les injections SQL
+        $query = $pdo->prepare('SELECT * FROM Book WHERE id=:id');
+        // Comme il n'y a qu'un seul param, pas besoin de faire un tableau, on peut utiliser bindParam
+        $query->bindParam(':id', $id);
+        $query->execute();
+        $query->setFetchMode(PDO::FETCH_CLASS, 'App\Models\BookModel');
+        // fetch et non fetchAll car on récupère une seule entrée
+        $book = $query->fetch();       
+       
+        return $book;
+    }
 
     public function insertBook(): bool
     {
@@ -64,26 +61,24 @@ class BookModel
         return $queryStatus;
     }
 
-    public function updateBook(): bool
-    {
-        $pdo = DataBase::connectPDO();
-       $user_id = $_SESSION['user_id'];
-        $sql = "UPDATE `Book` SET `name` = :name, `img` = :img, `resume` = :resume, `price` = :price, `user_id` = :user_id WHERE `id` = :id";
-        // associations des bonnes valeurs
-        $params = [
-            'id' => $this->id,
-            'name' => $this->name,
-            'img' => $this->img,
-            'resume' => $this->resume,
-            'price' => $this->price
-            
-            
-        ];
-        $query = $pdo->prepare($sql);
- 
-        $queryStatus = $query->execute($params);
-        return $queryStatus;
-    }
+   public function updateBook(): bool
+{
+    $pdo = DataBase::connectPDO();
+    $user_id = $_SESSION['user_id'];
+    $sql = "UPDATE `Book` SET `name` = :name, `img` = :img, `resume` = :resume, `price` = :price WHERE `id` = :id";
+    
+    $params = [
+        'id' => $this->id, // Assurez-vous d'avoir l'ID du livre que vous souhaitez mettre à jour
+        'name' => $this->name,
+        'img' => $this->img,
+        'resume' => $this->resume,
+        'price' => $this->price,
+    ];
+
+    $query = $pdo->prepare($sql);
+    $queryStatus = $query->execute($params);
+    return $queryStatus;
+}
 
     public static function deleteBook(int $bookId): bool
     {
@@ -94,28 +89,13 @@ class BookModel
         $queryStatus = $query->execute();
         return $queryStatus;
     }
-    public function getStockByName($name) {
-    $pdo = DataBase::connectPDO();
-    $sql = 'SELECT stock FROM Book WHERE name = :name';
-    $pdoStatement = $pdo->prepare($sql);
-    $pdoStatement->execute([':name' => $name]);
-    $stock = $pdoStatement->fetchColumn();
-    return $stock;
-}
-
-public function updateStockByName($name, $newStock) {
-    $pdo = DataBase::connectPDO();
-    $sql = 'UPDATE Book SET stock = :newStock WHERE name = :name';
-    $pdoStatement = $pdo->prepare($sql);
-    $pdoStatement->execute([':newStock' => $newStock, ':name' => $name]);
-}
 
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId($id)
+     public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -169,16 +149,14 @@ public function updateStockByName($name, $newStock) {
     {
         $this->stock = $stock;
     }
-    public function getQuantity(): int
+    public function getUserId(): int
     {
-        return $this->quantity;
+        return $this->user_id;
     }
-    public function setQuantity(int $quantity): int
+
+    public function setUserId(int $user_id): void
     {
-        $this->quantity = $quantity;
+        $this->user_id = $user_id;
     }
 }
-    
-
-
 ?>

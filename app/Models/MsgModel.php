@@ -1,43 +1,47 @@
 <?php
 
 namespace App\Models;
+
 use App\Utils\DataBase;
 use \PDO;
 
-class ContactModel
-{
-    private $id;
-    private $lastName;
-    private $firstName;
-    private $email;
-    private $msg;
 
-    
-        public function getMessages(){
+class ContactModel {
+     private $id;
+     private $lastName;
+     private $firstName;
+     private $email;
+     private $msg;
+
+       public function getMessages(){
     $pdo = DataBase::connectPDO();
     
     $sql = "SELECT * FROM message";
-
         $query = $pdo->prepare($sql);
         $query->execute();
         $messages = $query->fetchAll(PDO::FETCH_CLASS,'App\Models\ContactModel');
         return $messages;
-        
     }
-    public function insertMessage(): bool
-    {
-        $pdo = DataBase::connectPDO();
-        $sql = "INSERT INTO `message`(`lastName`, `FirstName`, `email`, `msg`) VALUES (:lastName, :firstName, :email, :msg)";
-        
+     public function registerMsg(): bool
+     {
+        // Connexion PDO
+         $pdo = DataBase::connectPDO();
+
+   // Requête SQL avec liaison de paramètres pour éviter les injections SQL
+        $sql = "INSERT INTO `message`(`lastName`, `firstName`, `email`, `msg`) VALUES (:lastName, :firstName, :email, :address, :password, :role)";
+        $pdoStatement = $pdo->prepare($sql);
+
         $params = [
-            'lastName' => $this->lastName,
-            'firstName' => $this->firstName,
-            'email' => $this->email,
-            'msg' => $this->msg,
-            
+            ':lastName' => $this->lastName,
+            ':firstName' => $this->firstName,
+            ':email' => $this->email,
+            ':msg' => $this->msg,
         ];
-        $query = $pdo->prepare($sql);
-        $queryStatus = $query->execute($params);
+
+        // Exécution de la requête
+        $queryStatus = $pdoStatement->execute($params);
+
+        // On retourne le statut
         return $queryStatus;
     }
      public function getId(): int
